@@ -1,125 +1,131 @@
 @font-face {
-    font-family: "GeistMono";
-    src: url("GeistMono-Regular.ttf") format("truetype");
-    font-weight: normal;
-    font-style: normal;
+	font-family: "Geist Mono";
+	src: url("GeistMono-Regular.woff2") format("woff2"),
+		url("GeistMono-Regular.woff") format("woff"),
+		url("GeistMono-Regular.ttf") format("truetype");
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
-html, body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    overflow-x: hidden;
+html,
+body {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	overflow-x: hidden;
 }
 
 pre {
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 50vh; 
-    font-family: 'GeistMono', monospace;
-    font-size: 7px;
-    margin-top: 60px;
-    margin-bottom: 60px;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 50vh;
+	font-family: "GeistMono", monospace;
+	font-size: 7px;
+	margin-top: 60px;
+	margin-bottom: 60px;
+	line-height: 1;
 }
 
 p {
-    margin: 10px 20px;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    height: auto; 
-    font-family: 'GeistMono', monospace;
+	margin: 10px 20px;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	height: auto;
+	font-family: "GeistMono", monospace;
 }
 
 h1 {
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: auto; 
-    font-family: 'GeistMono', monospace;
-    padding-top: 15px;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: auto;
+	font-family: "GeistMono", monospace;
+	padding-top: 15px;
 }
 
 p a {
-    margin: 0 5px;
+	margin: 0 5px;
 }
 
 .donut-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    user-select: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	user-select: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
 }
 
 .copy {
-    width: 100%;
-    padding: 10px;
-    text-align: center;
+	width: 100%;
+	padding: 10px;
+	text-align: center;
 }
 
-.grantees, .granted {
-    list-style-type: none;
-    padding: 0;
-    margin: 10px 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    font-family: 'GeistMono', monospace;
+.grantees,
+.granted {
+	list-style-type: none;
+	padding: 0;
+	margin: 10px 20px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	font-family: "GeistMono", monospace;
 }
 
 @media only screen and (max-width: 1000px) {
-    pre {
-        text-align: center;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 50vh; 
-        font-family: 'GeistMono', monospace;
-        font-size: 4px;
-        margin-top: 0px;
-        margin-bottom: 0px;
-    }
-    p {
-        font-size: 16px;
-        flex-wrap: wrap;
-    }
-    h1 {
-        font-size: 30px;
-        padding-top: 40px;
-    }
-    .granted {
-        font-size: 16px;
-        margin-left: 20px;
-        margin-right: 20px;
-    }
-    .grantees {
-        font-size: 16px;
-    }
-    .donut-container {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 100%;
-    }
-    .copy {
-        width: 100%;
-        padding: 0px;
-        text-align: center;
-    }
+	pre {
+		text-align: center;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 50vh;
+		font-family: "GeistMono", monospace;
+		font-size: 4px;
+		margin-top: 0px;
+		margin-bottom: 0px;
+	}
+	p {
+		font-size: 16px;
+		flex-wrap: wrap;
+	}
+	h1 {
+		font-size: 30px;
+		padding-top: 40px;
+	}
+	.granted {
+		font-size: 16px;
+		margin-left: 20px;
+		margin-right: 20px;
+	}
+	.grantees {
+		font-size: 16px;
+	}
+	.donut-container {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 100%;
+	}
+	.copy {
+		width: 100%;
+		padding: 0px;
+		text-align: center;
+	}
 }
