@@ -1,16 +1,16 @@
-const preTag = document.querySelector('#bagel');
+window.BAGEL_SPEED = 0.2; // lower = slower
 
 let A = 1;
 let B = 1;
 
-const renderAsciiFrame = () => {
+const renderAsciiFrame = preTag => {
 	const width = 280;
 	const height = 160;
 	const b = Array(width * height).fill(' ');
 	const z = Array(width * height).fill(0);
 
-	A += 0.07;
-	B += 0.03;
+	A += 0.07 * window.BAGEL_SPEED;
+	B += 0.03 * window.BAGEL_SPEED;
 
 	const [cA, sA, cB, sB] = [Math.cos(A), Math.sin(A), Math.cos(B), Math.sin(B)];
 
@@ -47,12 +47,11 @@ const renderAsciiFrame = () => {
 	}
 
 	preTag.innerHTML = b.join('');
+
+	requestAnimationFrame(() => renderAsciiFrame(preTag));
 };
 
-renderAsciiFrame();
-
 document.addEventListener('DOMContentLoaded', () => {
-	setInterval(renderAsciiFrame, 50);
+	const preTag = document.querySelector('#bagel');
+	renderAsciiFrame(preTag);
 });
-
-window.addEventListener('resize', renderAsciiFrame);
