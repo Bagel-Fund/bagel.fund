@@ -1,100 +1,58 @@
-(function () {
-	var preTag = document.getElementById("donut");
+const preTag = document.querySelector('#bagel');
 
-	// Angles, Radius and Contants
-	var A = 1;
-	var B = 1;
-	var R1 = 1;
-	var R2 = 2;
-	var K1 = 150;
-	var K2 = 5;
+let A = 1;
+let B = 1;
 
-	// Function to render ASCII frame
-	function renderAsciiFrame() {
-		var b = []; // Array to stay acii chars
-		var z = []; // Array to store depth values
+const renderAsciiFrame = () => {
+	const width = 280;
+	const height = 160;
+	const b = Array(width * height).fill(' ');
+	const z = Array(width * height).fill(0);
 
-		var width = 280; // Width of frame
-		var height = 160; // Height of frame
+	A += 0.07;
+	B += 0.03;
 
-		A += 0.07; // Increament angle a
-		B += 0.03; // Increament angle b
-		// Sin and Cosine of angles
-		var cA = Math.cos(A),
-			sA = Math.sin(A),
-			cB = Math.cos(B),
-			sB = Math.sin(B);
+	const [cA, sA, cB, sB] = [Math.cos(A), Math.sin(A), Math.cos(B), Math.sin(B)];
 
-		// Initialize arrays with default angles
-		for (var k = 0; k < width * height; k++) {
-			// Set default ascii char
-			b[k] = k % width == width - 1 ? "\n" : " ";
-			// Set default depth
-			z[k] = 0;
-		}
+	// Set newline characters at the end of each row
+	for (let k = width - 1; k < width * height; k += width) {
+		b[k] = '\n';
+	}
 
-		// Generate the ascii frame
-		for (var j = 0; j < 6.28; j += 0.07) {
-			var ct = Math.cos(j); // Cosine of j
-			var st = Math.sin(j); // Sin of j
+	for (let j = 0; j < 2 * Math.PI; j += 0.07) {
+		const ct = Math.cos(j);
+		const st = Math.sin(j);
 
-			for (var i = 0; i < 6.28; i += 0.02) {
-				var sp = Math.sin(i); // Sin of i
-				(cp = Math.cos(i)), // Cosine of i
-					(h = ct + 2), // Height calculation
-					// Distance calculation
-					(D = 1 / (sp * h * sA + st * cA + 5)),
-					// Temporary variable
-					(t = sp * h * cA - st * sA);
+		for (let i = 0; i < 2 * Math.PI; i += 0.02) {
+			const sp = Math.sin(i);
+			const cp = Math.cos(i);
+			const h = ct + 2;
+			const D = 1 / (sp * h * sA + st * cA + 5);
+			const t = sp * h * cA - st * sA;
 
-				// Calculate cordinates of ascii char
-				var x = Math.floor(
-					width / 2 + (width / 4) * D * (cp * h * cB - t * sB)
-				);
-				var y = Math.floor(
-					height / 2 + (height / 4) * D * (cp * h * sB + t * cB)
-				);
+			const x = Math.floor(width / 2 + (width / 4) * D * (cp * h * cB - t * sB));
+			const y = Math.floor(height / 2 + (height / 4) * D * (cp * h * sB + t * cB));
 
-				// Calculate the index in the array
-				var o = x + width * y;
-				// Calculate the ascii char index
-				var N = Math.floor(
-					8 *
-						((st * sA - sp * ct * cA) * cB -
-							sp * ct * sA -
-							st * cA -
-							cp * ct * sB)
-				);
+			const o = x + width * y;
+			const N = Math.floor(
+				8 * ((st * sA - sp * ct * cA) * cB - sp * ct * sA - st * cA - cp * ct * sB),
+			);
 
-				// Update ascii char and depth if conditions are met
-				if (y < height && y >= 0 && x >= 0 && x < width && D > z[o]) {
-					z[o] = D;
-					// Update ascii char based on the index
-					b[o] = ".,-~:;=!*#$@"[N > 0 ? N : 0];
-				}
+			if (y < height && y >= 0 && x >= 0 && x < width && D > z[o]) {
+				z[o] = D;
+				b[o] = '.,-bagelfund'[Math.max(0, N)];
+				// b[o] = '.,-~:;=!*#$@'[Math.max(0, N)];
 			}
 		}
-
-		// Update html element with the ascii frame
-		preTag.innerHTML = b.join("");
 	}
 
-	// Function to start the animation
-	function startAsciiAnimation() {
-		// Start it by calling renderAsciiAnimation every 50ms
-		window.asciiIntervalId = setInterval(renderAsciiFrame, 50);
-	}
+	preTag.innerHTML = b.join('');
+};
 
-	renderAsciiFrame(); // Render the initial ascii frame
-	// Add event listener to start animation when page is loaded
-	if (document.all) {
-		// For older versions of internet explorer
-		window.attachEvent("onload", startAsciiAnimation);
-	} else {
-		// For modern browsers
-		window.addEventListener("load", startAsciiAnimation, false);
-	}
+renderAsciiFrame();
 
-	// Add event listener to update ascii frame when window resized
-	window.addEventListener("resize", renderAsciiFrame);
-})();
+document.addEventListener('DOMContentLoaded', () => {
+	setInterval(renderAsciiFrame, 50);
+});
+
+window.addEventListener('resize', renderAsciiFrame);

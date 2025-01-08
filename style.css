@@ -1,131 +1,119 @@
 @font-face {
-	font-family: "Geist Mono";
-	src: url("GeistMono-Regular.woff2") format("woff2"),
-		url("GeistMono-Regular.woff") format("woff"),
-		url("GeistMono-Regular.ttf") format("truetype");
-	font-weight: normal;
+	font-family: 'Geist Mono';
+	src: url('GeistMono-Regular.woff2') format('woff2'), url('GeistMono-Regular.woff') format('woff'),
+		url('GeistMono-Regular.ttf') format('truetype');
+	font-weight: 400;
 	font-style: normal;
 	font-display: swap;
+}
+
+:root {
+	--font-family: 'Geist Mono', monospace;
+	padding-bottom: 3rem;
 }
 
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+	font-family: var(--font-family);
+	font-weight: 400;
 }
 
 html,
 body {
-	margin: 0;
-	padding: 0;
-	width: 100%;
-	overflow-x: hidden;
+	color: #363636;
+	font-size: 0.9rem;
 }
 
-pre {
-	text-align: center;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 50vh;
-	font-family: "GeistMono", monospace;
-	font-size: 7px;
-	margin-top: 60px;
-	margin-bottom: 60px;
+body {
+	padding: 0 20px;
+}
+
+#root {
+	margin: 0 auto;
+	max-width: 50rem;
+}
+
+#bagel {
+	user-select: none;
+
 	line-height: 1;
+	font-size: 0.3rem;
+	display: flex;
+	width: 100%;
+	align-items: center;
+	justify-content: center;
+	overflow-y: hidden;
+	height: 300px;
+	max-width: 300px;
 }
 
 p {
-	margin: 10px 20px;
-	text-align: center;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-wrap: wrap;
-	height: auto;
-	font-family: "GeistMono", monospace;
+	padding-bottom: 1rem;
 }
 
 h1 {
-	text-align: center;
-	display: flex;
-	justify-content: center;
-	align-items: center;
 	height: auto;
-	font-family: "GeistMono", monospace;
-	padding-top: 15px;
+
+	padding-bottom: 1rem;
 }
 
-p a {
-	margin: 0 5px;
+li {
+	margin-left: 1rem;
+	line-height: 1.3rem;
 }
 
-.donut-container {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	height: 100%;
-	user-select: none;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-}
-
-.copy {
-	width: 100%;
-	padding: 10px;
-	text-align: center;
-}
-
-.grantees,
-.granted {
+ul {
+	margin-left: 1rem;
 	list-style-type: none;
-	padding: 0;
-	margin: 10px 20px;
+}
+
+.donation-cards {
+	display: grid;
+	gap: 1rem;
+	grid-template-columns: repeat(3, 1fr);
+}
+
+.donation-card {
+	background: #f0f0f0;
+	padding: 1rem;
+	border-radius: 0.5rem;
+
 	display: flex;
 	flex-direction: column;
-	align-items: center;
-	text-align: center;
-	font-family: "GeistMono", monospace;
+	gap: 1rem;
 }
 
-@media only screen and (max-width: 1000px) {
-	pre {
-		text-align: center;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		height: 50vh;
-		font-family: "GeistMono", monospace;
-		font-size: 4px;
-		margin-top: 0px;
-		margin-bottom: 0px;
-	}
-	p {
-		font-size: 16px;
-		flex-wrap: wrap;
-	}
-	h1 {
-		font-size: 30px;
-		padding-top: 40px;
-	}
-	.granted {
-		font-size: 16px;
-		margin-left: 20px;
-		margin-right: 20px;
-	}
-	.grantees {
-		font-size: 16px;
-	}
-	.donut-container {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		height: 100%;
-	}
-	.copy {
-		width: 100%;
-		padding: 0px;
-		text-align: center;
+.donation-card p {
+	padding: 0;
+	font-size: 0.9rem;
+}
+
+.donation-card a {
+	text-decoration: none;
+	color: #363636;
+	background: #363636;
+	color: #f0f0f0;
+	padding: 0.5rem 1rem;
+	border-radius: 0.5rem;
+	text-align: center;
+	transition: all 0.2s ease-in-out;
+}
+
+.donation-card a:hover {
+	background: #505050;
+}
+
+.donation-note {
+	padding-top: 1rem;
+	text-align: center;
+	font-size: 0.8rem;
+	color: #505050;
+}
+
+@media only screen and (max-width: 650px) {
+	.donation-cards {
+		grid-template-columns: repeat(1, 1fr);
 	}
 }
