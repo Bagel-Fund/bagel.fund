@@ -37,14 +37,13 @@ body {
 
 #bagel {
 	user-select: none;
-
 	line-height: 1;
 	font-size: 0.3rem;
 	display: flex;
 	width: 100%;
 	align-items: center;
 	justify-content: center;
-	overflow-y: hidden;
+	overflow: hidden;
 	height: 300px;
 	max-width: 300px;
 }
