@@ -100,6 +100,20 @@ ul {
 	transition: all 0.2s ease-in-out;
 }
 
+.advisor-card a {
+	text-decoration: none;
+	color: #f0f0f0;
+	background: #f0f0f0;
+	color: #363636;
+	padding: 0.5rem 1rem;
+	border-radius: 0.5rem;
+	text-align: center;
+	transition: all 0.2s ease-in-out;
+}
+
+.advisor-card a:hover {
+	background: #fff;
+
 .donation-card a:hover {
 	background: #505050;
 }
