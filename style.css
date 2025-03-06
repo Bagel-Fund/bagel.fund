@@ -72,6 +72,7 @@ ul {
 	display: grid;
 	gap: 1rem;
 	grid-template-columns: repeat(3, 1fr);
+	padding-bottom: 1rem;
 }
 
 .donation-card {
@@ -119,7 +120,6 @@ ul {
 }
 
 .donation-note {
-	padding-top: 1rem;
 	text-align: center;
 	font-size: 0.8rem;
 	color: #505050;
