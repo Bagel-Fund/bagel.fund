@@ -1,4 +1,4 @@
-window.BAGEL_SPEED = 0.2; // lower = slower
+window.BAGEL_SPEED = 0.025; // lower = slower
 
 let A = 1;
 let B = 1;
