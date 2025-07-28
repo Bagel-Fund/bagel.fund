@@ -41,6 +41,7 @@ const renderAsciiFrame = preTag => {
 			if (y < height && y >= 0 && x >= 0 && x < width && D > z[o]) {
 				z[o] = D;
 				b[o] = '.,-bagelfund'[Math.max(0, N)];
+				// b[o] = '`·╌░▏▎▍▌▋▊▉█'[Math.max(0, N)];
 				// b[o] = '.,-~:;=!*#$@'[Math.max(0, N)];
 			}
 		}
