@@ -126,6 +126,84 @@ ul {
 	color: #505050;
 }
 
+#search-filter-container {
+	margin: 1rem 0;
+	padding: 1rem;
+	background: #f9f9f9;
+	border-radius: 0.5rem;
+}
+
+#search-container {
+	margin-bottom: 1rem;
+}
+
+#search-input {
+	width: 100%;
+	padding: 0.75rem;
+	border: 1px solid #e0e0e0;
+	border-radius: 0.25rem;
+	font-family: var(--font-family);
+	font-size: 0.9rem;
+	background: #fff;
+}
+
+#search-input:focus {
+	outline: none;
+	border-color: #363636;
+}
+
+#filter-container {
+	display: flex;
+	flex-direction: column;
+	gap: 0.75rem;
+}
+
+.filter-label {
+	font-size: 0.9rem;
+	font-weight: 400;
+}
+
+#tag-filters {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.75rem;
+}
+
+.tag-filter-label {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	cursor: pointer;
+	font-size: 0.9rem;
+	user-select: none;
+}
+
+.tag-filter-label input[type='checkbox'] {
+	cursor: pointer;
+	width: 1rem;
+	height: 1rem;
+}
+
+.tag-filter-label span {
+	padding: 0.25rem 0.5rem;
+	background: #e0e0e0;
+	border-radius: 0.25rem;
+	transition: all 0.2s ease-in-out;
+}
+
+.tag-filter-label input[type='checkbox']:checked + span {
+	background: #363636;
+	color: #f0f0f0;
+}
+
+.tag-filter-label:hover span {
+	background: #d0d0d0;
+}
+
+.tag-filter-label input[type='checkbox']:checked + span:hover {
+	background: #505050;
+}
+
 #grantees-container {
 	overflow-x: auto;
 	margin: 1rem 0;

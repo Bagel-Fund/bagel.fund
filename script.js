@@ -53,9 +53,23 @@ const renderAsciiFrame = preTag => {
 };
 
 let granteesData = [];
+let filteredGranteesData = [];
 let currentSort = {field: null, direction: 'asc'};
+let searchQuery = '';
+let selectedTags = [];
 
-const VALID_TAGS = ['hardware', 'software', 'climate', 'health tech', 'deep tech'];
+const VALID_TAGS = [
+	'hardware',
+	'software',
+	'climate',
+	'health tech',
+	'deep tech',
+	'robotics',
+	'aerospace',
+	'ai/ml',
+	'biotech',
+	'agriculture',
+];
 
 const formatDate = dateString => {
 	if (!dateString) return '';
@@ -123,15 +137,48 @@ const renderGrantees = grantees => {
 	});
 };
 
-const sortGrantees = field => {
-	if (currentSort.field === field) {
-		currentSort.direction = currentSort.direction === 'asc' ? 'desc' : 'asc';
-	} else {
-		currentSort.field = field;
-		currentSort.direction = 'asc';
+const filterAndSearchGrantees = () => {
+	let filtered = [...granteesData];
+
+	// Apply search filter
+	if (searchQuery.trim()) {
+		const query = searchQuery.toLowerCase().trim();
+		filtered = filtered.filter(grantee => {
+			const nameMatch = grantee.name?.toLowerCase().includes(query);
+			const descMatch = grantee.projectDescription?.toLowerCase().includes(query);
+			return nameMatch || descMatch;
+		});
 	}
 
-	const sorted = [...granteesData].sort((a, b) => {
+	// Apply tag filter
+	if (selectedTags.length > 0) {
+		filtered = filtered.filter(grantee => {
+			if (!grantee.tags || !Array.isArray(grantee.tags)) return false;
+			return selectedTags.some(tag => grantee.tags.includes(tag));
+		});
+	}
+
+	filteredGranteesData = filtered;
+
+	// Apply current sort if any
+	if (currentSort.field) {
+		sortGrantees(currentSort.field, false);
+	} else {
+		renderGrantees(filteredGranteesData);
+	}
+};
+
+const sortGrantees = (field, updateSort = true) => {
+	if (updateSort) {
+		if (currentSort.field === field) {
+			currentSort.direction = currentSort.direction === 'asc' ? 'desc' : 'asc';
+		} else {
+			currentSort.field = field;
+			currentSort.direction = 'asc';
+		}
+	}
+
+	const sorted = [...filteredGranteesData].sort((a, b) => {
 		let aVal = a[field];
 		let bVal = b[field];
 
@@ -163,7 +210,9 @@ const sortGrantees = field => {
 	});
 
 	renderGrantees(sorted);
-	updateSortIndicators();
+	if (updateSort) {
+		updateSortIndicators();
+	}
 };
 
 const updateSortIndicators = () => {
@@ -182,10 +231,31 @@ const updateSortIndicators = () => {
 	}
 };
 
+const setupSearchAndFilter = () => {
+	// Setup search input
+	const searchInput = document.querySelector('#search-input');
+	searchInput.addEventListener('input', e => {
+		searchQuery = e.target.value;
+		filterAndSearchGrantees();
+	});
+
+	// Setup tag filters
+	const tagCheckboxes = document.querySelectorAll('.tag-checkbox');
+	tagCheckboxes.forEach(checkbox => {
+		checkbox.addEventListener('change', () => {
+			selectedTags = Array.from(tagCheckboxes)
+				.filter(cb => cb.checked)
+				.map(cb => cb.value);
+			filterAndSearchGrantees();
+		});
+	});
+};
+
 const loadGrantees = async () => {
 	try {
 		const response = await fetch('grantees.json');
 		granteesData = await response.json();
+		filteredGranteesData = [...granteesData];
 		renderGrantees(granteesData);
 
 		// Add click handlers to sortable headers
@@ -196,6 +266,9 @@ const loadGrantees = async () => {
 				sortGrantees(sortField);
 			});
 		});
+
+		// Setup search and filter
+		setupSearchAndFilter();
 	} catch (error) {
 		console.error('Error loading grantees:', error);
 	}
