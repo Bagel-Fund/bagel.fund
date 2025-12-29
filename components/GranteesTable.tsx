@@ -183,15 +183,7 @@ export default function GranteesTable({grantees}: GranteesTableProps) {
 						) : (
 							filteredAndSortedGrantees.map((grantee: Grantee, index: number) => (
 								<tr key={`${grantee.name}-${index}`}>
-									<td>
-										{grantee.link ? (
-											<a href={grantee.link} target="_blank" rel="noopener noreferrer">
-												{grantee.name}
-											</a>
-										) : (
-											grantee.name
-										)}
-									</td>
+									<td>{grantee.name}</td>
 									<td>{grantee.age || ''}</td>
 									<td>{grantee.projectDescription || ''}</td>
 									<td>
