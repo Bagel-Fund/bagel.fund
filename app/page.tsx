@@ -170,7 +170,7 @@ export default function Home() {
 				</div>
 
 				<p style={{paddingTop: '8rem'}}>
-					Bagel Fund is a fiscally sponsored 501(c)3 nonprofit. EIN: 99-1405564.
+					Bagel Fund is a 501(c)3 nonprofit. EIN: 33-2899896.
 				</p>
 				<p>
 					<a
