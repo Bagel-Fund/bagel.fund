@@ -1,328 +1,151 @@
 <!DOCTYPE html>
 <html>
+	<head>
+		<script async src="https://cdn.splitbee.io/sb.js"></script>
+		<script async src="https://cdn.seline.com/seline.js" data-token="e20a4df338bf61a"></script>
+		<title>Bagel Fund</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="style.css" />
+		<link rel="icon" type="image/x-icon" href="favicon.ico" />
+		<meta property="og:title" content="Bagel Fund" />
+		<meta property="og:description" content="$100-500 micro-grants for young ambitious builders." />
+		<meta property="og:image" content="http://bagel.fund/og-image.webp" />
+		<meta property="og:url" content="https://bagel.fund/" />
+		<meta property="og:type" content="website" />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content="Bagel Fund" />
+		<meta name="twitter:description" content="$100-500 micro-grants for young ambitious builders." />
+		<meta name="twitter:image" content="http://bagel.fund/og-image.webp" />
+		<meta name="twitter:url" content="https://bagel.fund/" />
 
-<head>
-  <script async src="https://cdn.splitbee.io/sb.js"></script>
-  <script async src="https://cdn.seline.com/seline.js" data-token="e20a4df338bf61a"></script>
-  <title>Bagel Fund</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-  <link rel="stylesheet" type="text/css" href="style.css" />
-  <link rel="icon" type="image/x-icon" href="favicon.ico" />
-  <meta property="og:title" content="Bagel Fund" />
-  <meta property="og:description" content="$100-500 micro-grants for young ambitious builders." />
-  <meta property="og:image" content="http://bagel.fund/og-image.webp" />
-  <meta property="og:url" content="https://bagel.fund/" />
-  <meta property="og:type" content="website" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Bagel Fund" />
-  <meta name="twitter:description" content="$100-500 micro-grants for young ambitious builders." />
-  <meta name="twitter:image" content="http://bagel.fund/og-image.webp" />
-  <meta name="twitter:url" content="https://bagel.fund/" />
+		<script src="script.js"></script>
+	</head>
 
-  <script src="script.js"></script>
-</head>
+	<body>
+		<div id="root">
+			<pre id="bagel"></pre>
+			<h1>Bagel Fund</h1>
 
-<body>
-  <div id="root">
-    <pre id="bagel"></pre>
-    <h1>Bagel Fund</h1>
+			<div>
+				<p>
+					<a href="https://bagelfund.substack.com/">Quarterly Grant Updates Here</a>
+				</p>
+				<p>What is Bagel Fund? We're a friend group in tech that wants to support young people working on important problems with scrappy solutions.</p>
+				<p>We give microgrants ($100-500) to ambitious young builders.</p>
+				<p>
+					Working on something cool and need some non-dilutive ideation capital? Fill out this short
+					<a href="https://ak-columbia.notion.site/2250cfd9eaa3809db298f27055556489?pvs=105">form</a>. We'll get back to you via email if it's a good fit.
+				</p>
+			</div>
 
-    <div>
-      <p>
-        <a href="https://bagelfund.substack.com/">Quarterly Grant Updates Here</a>
-      </p>
-      <p>
-        What is Bagel Fund? We're a friend group in tech that wants to support
-        young people working on important problems with scrappy solutions.
-      </p>
-      <p>We give microgrants ($100-500) to ambitious young builders.</p>
-      <p>
-        Working on something cool and need some non-dilutive ideation capital?
-        Fill out this short
-        <a href="https://ak-columbia.notion.site/2250cfd9eaa3809db298f27055556489?pvs=105">form</a>. We'll get back to
-        you via email if it's a good fit.
-      </p>
-    </div>
+			<br />
 
-    <br />
+			<div>
+				<div>
+					<p>To date, we've funded:</p>
 
-    <div>
-      <div>
-        <p>To date, we've funded:</p>
+					<div id="grantees-container">
+						<table id="grantees-table">
+							<thead>
+								<tr>
+									<th>Name</th>
+									<th class="sortable" data-sort="age">Age <span class="sort-indicator">↕</span></th>
+									<th>Project</th>
+									<th class="sortable" data-sort="tags">Tags <span class="sort-indicator">↕</span></th>
+									<th class="sortable" data-sort="fundedDate">Funded Date <span class="sort-indicator">↕</span></th>
+								</tr>
+							</thead>
+							<tbody id="grantees-tbody">
+								<!-- Grantees will be loaded from grantees.json -->
+							</tbody>
+						</table>
+					</div>
+				</div>
 
-        <ul class="granted">
-          <li>
-            <a href="https://psytech.art" target="_blank">Daniel</a>, 25, turning motion and brainwaves into sound
-          </li>
-          <li>
-            Visharad, 14, making e-skin to give robots the sense of touch
-          </li>
-          <li>
-            <a href="https://www.linkedin.com/in/kushal-chebiyam/" target="_blank">Kushal</a>, 19, financial exchanges for music by letting fans bet on artists
-          </li>
-           <li>
-            <a href="https://www.linkedin.com/in/anusha-agarwal-b216b825b" target="_blank">Anusha</a>, 17, radiation-resistant AI hardware and quantum intelligence
-          </li>
-          <li>
-            <a href="https://www.linkedin.com/in/aditi-datla-359554141/" target="_blank">Aditi</a>, 17, wearable biosensors to track and predict hormonal fluctuations 
-          </li>
-          <li>
-            <a href="https://www.linkedin.com/in/hriday-unadkat/" target="_blank">Hriday</a>, 21, bat-inspired flight mechanics
-          </li>
-          <li>
-            <a href="https://peterhe.dev" target="_blank">Peter</a>, 19, galvanic Vestibular Stimulation to give people spidey sense
-          </li>
-          <li>
-            <a href="https://www.linkedin.com/in/sebastian-drezek/" target="_blank">Sebastian</a>, 18, the world's first pulse jet powered VTOL
-          </li>
-           <li>
-            <a href="https://www.linkedin.com/in/chloe-hongan-nguyen/" target="_blank">Chloe</a>, 19, an omni-directional treadmill that takes you anywhere
-          </li>
-          <li>
-            Diego, 19, fully autonomous and reusable cargo aapsule
-          </li>
-          <li>
-            <a href="https://www.linkedin.com/in/sofilipkev" target="_blank">Sofia</a>, 17, VLA models for robotics
-          </li>
-          <li>
-            <a href="https://www.linkedin.com/in/felicia-iordachi/" target="_blank">Felicia</a>, 19, AI neonatal
-            screening tests
-          </li>
-          <li>
-            <a href="https://linkedin.com/in/shraddhaamohan" target="_blank">Shraddhaa</a>, 25, open-source bipdeal
-            robot
-          </li>
-          <li>
-            <a href="https://x.com/LivingstoneAre" target="_blank">Livingstone</a>, 19, low-cost NFC attendance system
-            for schools
-          </li>
-          <li>
-            <a href="https://www.linkedin.com/in/satya-shanmugaselvam-596b50326/" target="_blank">Satya</a>, 17, memory
-            alloy prothesis
-          </li>
-          <li>
-            <a href="https://x.com/crux_dev/status/1880933396744183852" target="_blank">Aadeshwar</a>, 19, hybrid
-            air/ground UAV
-          </li>
-          <li>
-            <a href="https://www.x.com/bagelfund" target="_blank">Yash</a>, 20, flight computer for model rockets
-          </li>
-          <li>
-            <a href="https://www.linkedin.com/in/tojtek/" target="_blank">Temitope</a>, 18, solar-enabled phototherapy
-            to treat neonatal jaundice
-          </li>
-          <li>
-            <a href="https://www.linkedin.com/in/pavitra-patel-62b74823a/" target="_blank">Pavitra</a>, 20, reusable
-            model rocket motor
-          </li>
-          <li>
-            <a href="https://www.linkedin.com/in/begum-zeynep-yapici-b71498301/" target="_blank">Begüm</a>, 16, low-cost
-            bio printer
-          </li>
-          <li>
-            <a href="https://x.com/pSwaqtch" target="_blank">Krupal</a>, 19, volumetric display with rotating LED matrix
-            for medical imaging
-          </li>
-          <li>
-            <a href="https://x.com/yanovskyd" target="_blank">Dima</a>, 24, dexterous low-cost robotic arms
-          </li>
-          <li>
-            <a href="https://www.linkedin.com/in/beckett-devoe-566587285" target="_blank">Beckett</a>, 21, computer
-            vision water monitoring to boost shrimp yield by 40%
-          </li>
-          <li>
-            <a href="http://www.linkedin.com/in/arya-gurumukhi" target="_blank">Arya</a>, 16, bionic leaf for solar
-            power
-          </li>
-          <li>
-            <a href="https://www.linkedin.com/in/akshatsinghania" target="_blank">Akshat</a>, 16, low-cost assistive
-            smart glasses with voice control
-          </li>
-          <li>
-            <a href="https://x.com/tawheedrahman10" target="_blank">Tawheed</a>, 14, low-cost robotic prosthetic hands
-          </li>
-          <li>
-            <a href="https://www.linkedin.com/in/opemipo404/" target="_blank">Opemipo</a>, 17, real-time macronutrient
-            tracking for hydroponics
-          </li>
-          <li>
-            <a href="https://x.com/bagelfund" target="_blank">Lewis</a>, 14,
-            6-axis robotic arm to assist builders
-          </li>
-          <li>
-            <a href="https://x.com/laurenap_" target="_blank">Lauren</a>, 20,
-            EMG/EEG device for non-verbal communication
-          </li>
-          <li>
-            <a href="https://x.com/Sid_899" target="_blank">Siddharth</a>, 20,
-            affordable autonomous micro drone swarms
-          </li>
-          <li>
-            <a href="https://github.com/badPotato1007/" target="_blank">Neerav</a>, 17, small solar-powered planes that
-            fly forever
-          </li>
-          <li>
-            <a href="https://www.linkedin.com/in/anirudh-mazumder/" target="_blank">Anirudh</a>, 17, controllers for
-            soft robots for surgery
-          </li>
-          <li>
-            <a href="https://www.linkedin.com/in/in-woopark/" target="_blank">In-Woo</a>, 18, clinical decision-support
-            tool for pharmacists
-          </li>
-          <li>
-            <a href="https://www.mpkendall.com/" target="_blank">Maxwell</a>, 13, radio tracking for high-altitude
-            balloons
-          </li>
-          <li>
-            <a href="https://www.linkedin.com/in/saras-agrawal-6397381b7/" target="_blank">Saras</a>, 17, on-ear heart
-            attack detection wearable
-          </li>
-          <li>
-            <a href="https://www.linkedin.com/in/carlos-jarqu%C3%ADn-8566691b4/" target="_blank">Carlos</a>, 19, novel
-            chemical processes for mine waste repurposing
-          </li>
-          <li>
-            <a href="https://ashnanirula.com/" target="_blank">Ashna</a>, 17,
-            novel CRISPR delivery method in plants
-          </li>
-          <li>
-            <a href="https://cnicholson.vercel.app/" target="_blank">Charles</a>, 14, building high-altitude UAVs
-          </li>
-          <li>
-            <a href="https://www.linkedin.com/in/mason-graves-unr" target="_blank">Mason</a>, 18, making a 2-octave
-            electric piano
-          </li>
-          <li>
-            <a href="https://x.com/habril27" target="_blank">Harish</a>, 15,
-            energy-saving smart home platform
-          </li>
-          <li>
-            <a href="https://x.com/Santiagds1/status/1813017243891953938" target="_blank">Santiago</a>, 21, 4-wheel
-            independent steering car
-          </li>
-          <li>
-            <a href="https://x.com/_yashkarthik/status/1811211108151398759" target="_blank">Yash</a>, 19, creating a
-            computer from scratch
-          </li>
-          <li>
-            <a href="https://x.com/SunirKM/status/1807638738509636045" target="_blank">Sunir</a>, 19, building
-            self-driving RC cars
-          </li>
-          <li>
-            <a href="https://x.com/aaryankushwahh/status/1797636787290177693" target="_blank">Aaryan</a>, 16, using
-            computer vision to detect falls in elder care
-          </li>
-          <li>
-            <a href="https://twitter.com/adv8p" target="_blank">Advait</a>,
-            18, building Teleoperation robots
-          </li>
-          <li>
-            <a href="https://x.com/ariellelok/status/1795874524237332913" target="_blank">Arielle</a>, 20, working on
-            Apple Tree cloning
-          </li>
-          <li>
-            <a href="https://twitter.com/WinstonIsk" target="_blank">Winston</a>, 17, increasing AI literacy for
-            students K-12
-          </li>
-        </ul>
-      </div>
+				<div style="padding-top: 20px">
+					<p>
+						Reach out to
+						<a href="mailto:aridutilh@gmail.com,alexa@kayman.ventures?subject=Bagel%20Grant%20Question" target="_blank">Ari and Alexa</a>
+						if you have questions about your application. Bagel Fund was founded by:
+					</p>
 
-      <div style="padding-top: 20px">
-        <p>
-          Reach out to
-          <a href="mailto:aridutilh@gmail.com,alexa@kayman.ventures?subject=Bagel%20Grant%20Question"
-            target="_blank">Ari and Alexa</a>
-          if you have questions about your application. Bagel Fund was founded
-          by:
-        </p>
+					<ul class="grantees">
+						<li>
+							<a href="https://twitter.com/nebulatgs" target="_blank">Adarsh Krishna</a>
+						</li>
+						<li>
+							<a href="https://twitter.com/alistaiir" target="_blank">Alistair Smith</a>
+						</li>
+						<li>
+							<a href="https://twitter.com/alexakayman" target="_blank">Alexa Kayman</a>
+						</li>
+						<li>
+							<a href="https://twitter.com/nijmehvm" target="_blank">Andrew Nijmeh</a>
+						</li>
+						<li>
+							<a href="https://twitter.com/aridutilh" target="_blank">Ari Dutilh</a>
+						</li>
+						<li>
+							<a href="https://twitter.com/brandonsaldan" target="_blank">Brandon Saldan</a>
+						</li>
+						<li>
+							<a href="https://twitter.com/devlooskie" target="_blank">Cody Miller</a>
+						</li>
+						<li>
+							<a href="https://twitter.com/notcnrad" target="_blank">Conrad Crawford</a>
+						</li>
+						<li>
+							<a href="https://twitter.com/landon_xyz" target="_blank">Landon Boles</a>
+						</li>
+						<li>
+							<a href="https://twitter.com/m1guelpf" target="_blank">Miguel Piedrafita</a>
+						</li>
+						<li>
+							<a href="https://twitter.com/roberttwestbury" target="_blank">Robert Westbury</a>
+						</li>
+						<li>
+							<a href="https://twitter.com/suptejas" target="_blank">Tejas Ravishankar</a>
+						</li>
+					</ul>
+				</div>
 
-        <ul class="grantees">
-          <li>
-            <a href="https://twitter.com/nebulatgs" target="_blank">Adarsh Krishna</a>
-          </li>
-          <li>
-            <a href="https://twitter.com/alistaiir" target="_blank">Alistair Smith</a>
-          </li>
-          <li>
-            <a href="https://twitter.com/alexakayman" target="_blank">Alexa Kayman</a>
-          </li>
-          <li>
-            <a href="https://twitter.com/nijmehvm" target="_blank">Andrew Nijmeh</a>
-          </li>
-          <li>
-            <a href="https://twitter.com/aridutilh" target="_blank">Ari Dutilh</a>
-          </li>
-          <li>
-            <a href="https://twitter.com/brandonsaldan" target="_blank">Brandon Saldan</a>
-          </li>
-          <li>
-            <a href="https://twitter.com/devlooskie" target="_blank">Cody Miller</a>
-          </li>
-          <li>
-            <a href="https://twitter.com/notcnrad" target="_blank">Conrad Crawford</a>
-          </li>
-          <li>
-            <a href="https://twitter.com/landon_xyz" target="_blank">Landon Boles</a>
-          </li>
-          <li>
-            <a href="https://twitter.com/m1guelpf" target="_blank">Miguel Piedrafita</a>
-          </li>
-          <li>
-            <a href="https://twitter.com/roberttwestbury" target="_blank">Robert Westbury</a>
-          </li>
-          <li>
-            <a href="https://twitter.com/suptejas" target="_blank">Tejas Ravishankar</a>
-          </li>
-        </ul>
-      </div>
+				<div style="padding-top: 20px">
+					<p>Want to help us make young people's dreams come true? Become a donor.</p>
 
-      <div style="padding-top: 20px">
-        <p>
-          Want to help us make young people's dreams come true? Become a
-          donor.
-        </p>
-
-        <!-- <script async src="https://js.stripe.com/v3/pricing-table.js"></script>
+					<!-- <script async src="https://js.stripe.com/v3/pricing-table.js"></script>
 					<stripe-pricing-table
 						pricing-table-id="prctbl_1Pa9MrI5QYNnZP6WQQiffoIv"
 						publishable-key="pk_live_51OdysDI5QYNnZP6WBxZeYgcE1r0Vtrz8YFBF8fUzCuHJO8OrBte80syNDNaVxfe5azJXuWtRq3mo8CC7YbKphcZM00uSzX6e4D"
 					/> -->
 
-        <div class="donation-cards">
-          <div class="donation-card">
-            <h2>Donate $53</h2>
-            <p>Recurring donation funding the next generation of builders</p>
-            <a href="https://buy.stripe.com/6oEdUi9Dw7kA11eeUY" target="_blank">Donate</a>
-          </div>
-          <div class="donation-card">
-            <h2>Donate $105</h2>
-            <p>Recurring donation funding the next generation of builders</p>
-            <a href="https://buy.stripe.com/14kaI63f87kA7pC9AC" target="_blank">Donate</a>
-          </div>
-          <div class="donation-card">
-            <h2>Donate $208</h2>
-            <p>Recurring donation funding the next generation of builders</p>
-            <a href="https://buy.stripe.com/cN2dUi9Dw9sI5hubIL" target="_blank">Donate</a>
-          </div>
-        </div>
+					<div class="donation-cards">
+						<div class="donation-card">
+							<h2>Donate $53</h2>
+							<p>Recurring donation funding the next generation of builders</p>
+							<a href="https://buy.stripe.com/6oEdUi9Dw7kA11eeUY" target="_blank">Donate</a>
+						</div>
+						<div class="donation-card">
+							<h2>Donate $105</h2>
+							<p>Recurring donation funding the next generation of builders</p>
+							<a href="https://buy.stripe.com/14kaI63f87kA7pC9AC" target="_blank">Donate</a>
+						</div>
+						<div class="donation-card">
+							<h2>Donate $208</h2>
+							<p>Recurring donation funding the next generation of builders</p>
+							<a href="https://buy.stripe.com/cN2dUi9Dw9sI5hubIL" target="_blank">Donate</a>
+						</div>
+					</div>
 
-        <p class="donation-note">
-          Your donations are tax deductible thanks to our partner 501(c)3
-          nonprofit with EIN 99-1405564. Thank you for supporting young
-          builders working on important problems with scrappy solutions.
-        </p>
-      </div>
+					<p class="donation-note">
+						Your donations are tax deductible thanks to our partner 501(c)3 nonprofit with EIN 99-1405564. Thank you for supporting young builders working on important problems with scrappy solutions.
+					</p>
+				</div>
 
-
-      <p style="padding-top: 8rem">
-        Bagel Fund is a fiscally sponsored 501(c)3 nonprofit. EIN: 99-1405564.
-      </p>
-      <p>
-        <a href="https://www.youtube.com/watch?v=_u2B3yDnxKg&ab_channel=rebelstasia" target="_blank">get sucked into the
-          bagel</a>
-      </p>
-    </div>
-  </div>
-</body>
-
+				<p style="padding-top: 8rem">Bagel Fund is a fiscally sponsored 501(c)3 nonprofit. EIN: 99-1405564.</p>
+				<p>
+					<a href="https://www.youtube.com/watch?v=_u2B3yDnxKg&ab_channel=rebelstasia" target="_blank">get sucked into the bagel</a>
+				</p>
+			</div>
+		</div>
+	</body>
 </html>

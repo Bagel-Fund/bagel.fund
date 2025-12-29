@@ -1,0 +1,9 @@
+{
+	"name": "bagel-fund",
+	"version": "1.0.0",
+	"description": "Bagel Fund - Micro-grants for young ambitious builders",
+	"scripts": {
+		"dev": "bun server.js",
+		"start": "bun server.js"
+	}
+}

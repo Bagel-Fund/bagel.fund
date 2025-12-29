@@ -52,7 +52,157 @@ const renderAsciiFrame = preTag => {
 	requestAnimationFrame(() => renderAsciiFrame(preTag));
 };
 
+let granteesData = [];
+let currentSort = {field: null, direction: 'asc'};
+
+const VALID_TAGS = ['hardware', 'software', 'climate', 'health tech', 'deep tech'];
+
+const formatDate = dateString => {
+	if (!dateString) return '';
+	try {
+		const date = new Date(dateString);
+		return date.toLocaleDateString('en-US', {year: 'numeric', month: 'short', day: 'numeric'});
+	} catch (e) {
+		return dateString;
+	}
+};
+
+const renderGrantees = grantees => {
+	const tbody = document.querySelector('#grantees-tbody');
+	tbody.innerHTML = '';
+
+	grantees.forEach(grantee => {
+		const tr = document.createElement('tr');
+
+		// Name column (with optional link)
+		const nameCell = document.createElement('td');
+		if (grantee.link) {
+			const link = document.createElement('a');
+			link.href = grantee.link;
+			link.target = '_blank';
+			link.textContent = grantee.name;
+			nameCell.appendChild(link);
+		} else {
+			nameCell.textContent = grantee.name;
+		}
+		tr.appendChild(nameCell);
+
+		// Age column
+		const ageCell = document.createElement('td');
+		ageCell.textContent = grantee.age || '';
+		tr.appendChild(ageCell);
+
+		// Project Description column
+		const projectCell = document.createElement('td');
+		projectCell.textContent = grantee.projectDescription || '';
+		tr.appendChild(projectCell);
+
+		// Tags column
+		const tagsCell = document.createElement('td');
+		if (grantee.tags && Array.isArray(grantee.tags) && grantee.tags.length > 0) {
+			const tagsContainer = document.createElement('div');
+			tagsContainer.className = 'tags-container';
+			grantee.tags.forEach(tag => {
+				if (VALID_TAGS.includes(tag)) {
+					const tagSpan = document.createElement('span');
+					tagSpan.className = 'tag';
+					tagSpan.textContent = tag;
+					tagsContainer.appendChild(tagSpan);
+				}
+			});
+			tagsCell.appendChild(tagsContainer);
+		}
+		tr.appendChild(tagsCell);
+
+		// Funded Date column
+		const dateCell = document.createElement('td');
+		dateCell.textContent = formatDate(grantee.fundedDate);
+		tr.appendChild(dateCell);
+
+		tbody.appendChild(tr);
+	});
+};
+
+const sortGrantees = field => {
+	if (currentSort.field === field) {
+		currentSort.direction = currentSort.direction === 'asc' ? 'desc' : 'asc';
+	} else {
+		currentSort.field = field;
+		currentSort.direction = 'asc';
+	}
+
+	const sorted = [...granteesData].sort((a, b) => {
+		let aVal = a[field];
+		let bVal = b[field];
+
+		// Handle null/undefined values
+		if (aVal == null && bVal == null) return 0;
+		if (aVal == null) return 1;
+		if (bVal == null) return -1;
+
+		// Handle arrays (tags)
+		if (Array.isArray(aVal)) {
+			aVal = aVal.join(', ');
+		}
+		if (Array.isArray(bVal)) {
+			bVal = bVal.join(', ');
+		}
+
+		// Handle dates
+		if (field === 'fundedDate' && aVal && bVal) {
+			aVal = new Date(aVal);
+			bVal = new Date(bVal);
+		}
+
+		// Convert to strings for comparison
+		aVal = String(aVal).toLowerCase();
+		bVal = String(bVal).toLowerCase();
+
+		const comparison = aVal.localeCompare(bVal);
+		return currentSort.direction === 'asc' ? comparison : -comparison;
+	});
+
+	renderGrantees(sorted);
+	updateSortIndicators();
+};
+
+const updateSortIndicators = () => {
+	document.querySelectorAll('.sort-indicator').forEach(indicator => {
+		indicator.textContent = '↕';
+	});
+
+	if (currentSort.field) {
+		const header = document.querySelector(`th[data-sort="${currentSort.field}"]`);
+		if (header) {
+			const indicator = header.querySelector('.sort-indicator');
+			if (indicator) {
+				indicator.textContent = currentSort.direction === 'asc' ? '↑' : '↓';
+			}
+		}
+	}
+};
+
+const loadGrantees = async () => {
+	try {
+		const response = await fetch('grantees.json');
+		granteesData = await response.json();
+		renderGrantees(granteesData);
+
+		// Add click handlers to sortable headers
+		document.querySelectorAll('.sortable').forEach(header => {
+			header.style.cursor = 'pointer';
+			header.addEventListener('click', () => {
+				const sortField = header.getAttribute('data-sort');
+				sortGrantees(sortField);
+			});
+		});
+	} catch (error) {
+		console.error('Error loading grantees:', error);
+	}
+};
+
 document.addEventListener('DOMContentLoaded', () => {
 	const preTag = document.querySelector('#bagel');
 	renderAsciiFrame(preTag);
+	loadGrantees();
 });

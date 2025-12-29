@@ -114,6 +114,7 @@ ul {
 
 .advisor-button:hover {
 	background: #fff;
+}
 
 .donation-card a:hover {
 	background: #505050;
@@ -125,8 +126,102 @@ ul {
 	color: #505050;
 }
 
+#grantees-container {
+	overflow-x: auto;
+	margin: 1rem 0;
+}
+
+#grantees-table {
+	width: 100%;
+	border-collapse: collapse;
+	font-size: 0.9rem;
+}
+
+#grantees-table thead {
+	background: #f0f0f0;
+}
+
+#grantees-table th {
+	padding: 0.75rem;
+	text-align: left;
+	border-bottom: 2px solid #363636;
+	font-weight: 400;
+}
+
+#grantees-table th.sortable {
+	user-select: none;
+}
+
+#grantees-table th.sortable:hover {
+	background: #e0e0e0;
+}
+
+#grantees-table .sort-indicator {
+	margin-left: 0.5rem;
+	font-size: 0.8rem;
+	color: #666;
+}
+
+/* Age column - wider to fit sort icon */
+#grantees-table th:nth-child(2),
+#grantees-table td:nth-child(2) {
+	width: 80px;
+	min-width: 80px;
+	white-space: nowrap;
+}
+
+/* Tags column - narrower */
+#grantees-table th:nth-child(4),
+#grantees-table td:nth-child(4) {
+	width: 150px;
+	max-width: 150px;
+}
+
+#grantees-table td {
+	padding: 0.75rem;
+	border-bottom: 1px solid #e0e0e0;
+	vertical-align: top;
+}
+
+#grantees-table tbody tr:hover {
+	background: #f9f9f9;
+}
+
+#grantees-table a {
+	color: #0066cc;
+	text-decoration: underline;
+}
+
+#grantees-table a:hover {
+	color: #0052a3;
+}
+
+.tags-container {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+}
+
+.tag {
+	display: inline-block;
+	padding: 0.25rem 0.5rem;
+	background: #e0e0e0;
+	border-radius: 0.25rem;
+	font-size: 0.8rem;
+	white-space: nowrap;
+}
+
 @media only screen and (max-width: 650px) {
 	.donation-cards {
 		grid-template-columns: repeat(1, 1fr);
+	}
+
+	#grantees-table {
+		font-size: 0.8rem;
+	}
+
+	#grantees-table th,
+	#grantees-table td {
+		padding: 0.5rem;
 	}
 }
