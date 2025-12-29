@@ -16,7 +16,18 @@ const server = Bun.serve({
 		const file = Bun.file(filePath);
 		const exists = await file.exists();
 		if (exists) {
-			return new Response(file);
+			// Set proper Content-Type headers
+			const headers = new Headers();
+			if (filePath.endsWith('.json')) {
+				headers.set('Content-Type', 'application/json');
+			} else if (filePath.endsWith('.html')) {
+				headers.set('Content-Type', 'text/html');
+			} else if (filePath.endsWith('.css')) {
+				headers.set('Content-Type', 'text/css');
+			} else if (filePath.endsWith('.js')) {
+				headers.set('Content-Type', 'application/javascript');
+			}
+			return new Response(file, {headers});
 		}
 
 		// 404 for not found

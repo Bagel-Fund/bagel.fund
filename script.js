@@ -83,7 +83,18 @@ const formatDate = dateString => {
 
 const renderGrantees = grantees => {
 	const tbody = document.querySelector('#grantees-tbody');
+	if (!tbody) {
+		console.error('Table body element not found');
+		return;
+	}
+
 	tbody.innerHTML = '';
+
+	if (!grantees || grantees.length === 0) {
+		tbody.innerHTML =
+			'<tr><td colspan="5" style="text-align: center; padding: 2rem;">No grantees found.</td></tr>';
+		return;
+	}
 
 	grantees.forEach(grantee => {
 		const tr = document.createElement('tr');
@@ -253,9 +264,28 @@ const setupSearchAndFilter = () => {
 
 const loadGrantees = async () => {
 	try {
-		const response = await fetch('grantees.json');
-		granteesData = await response.json();
+		// Use absolute path from root - works in all deployment scenarios
+		const jsonPath = new URL('grantees.json', window.location.href).href;
+		const response = await fetch(jsonPath);
+
+		if (!response.ok) {
+			throw new Error(`Failed to load grantees: ${response.status} ${response.statusText}`);
+		}
+
+		const data = await response.json();
+
+		if (!Array.isArray(data)) {
+			throw new Error('Invalid grantees data format');
+		}
+
+		granteesData = data;
 		filteredGranteesData = [...granteesData];
+
+		if (granteesData.length === 0) {
+			console.warn('No grantees data found');
+			return;
+		}
+
 		renderGrantees(granteesData);
 
 		// Add click handlers to sortable headers
@@ -271,11 +301,25 @@ const loadGrantees = async () => {
 		setupSearchAndFilter();
 	} catch (error) {
 		console.error('Error loading grantees:', error);
+		const tbody = document.querySelector('#grantees-tbody');
+		if (tbody) {
+			tbody.innerHTML = `<tr><td colspan="5" style="text-align: center; padding: 2rem; color: #666;">Error loading grantees. Please refresh the page.</td></tr>`;
+		}
 	}
 };
 
 document.addEventListener('DOMContentLoaded', () => {
 	const preTag = document.querySelector('#bagel');
-	renderAsciiFrame(preTag);
+	if (preTag) {
+		renderAsciiFrame(preTag);
+	}
+
+	// Ensure table elements exist before loading
+	const tbody = document.querySelector('#grantees-tbody');
+	if (!tbody) {
+		console.error('Table body not found in DOM');
+		return;
+	}
+
 	loadGrantees();
 });
