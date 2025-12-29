@@ -1,0 +1,378 @@
+[
+	{
+		"name": "Daniel",
+		"link": "https://psytech.art",
+		"age": 25,
+		"projectDescription": "turning motion and brainwaves into sound",
+		"fundedDate": "December 21, 2025",
+		"tags": ["deep tech"]
+	},
+	{
+		"name": "Visharad",
+		"link": null,
+		"age": 14,
+		"projectDescription": "making e-skin to give robots the sense of touch",
+		"fundedDate": "December 11, 2025",
+		"tags": ["deep tech", "robotics"]
+	},
+	{
+		"name": "Kushal",
+		"link": "https://www.linkedin.com/in/kushal-chebiyam/",
+		"age": 19,
+		"projectDescription": "financial exchanges for music by letting fans bet on artists",
+		"fundedDate": "December 12, 2025",
+		"tags": ["software"]
+	},
+	{
+		"name": "Anusha",
+		"link": "https://www.linkedin.com/in/anusha-agarwal-b216b825b",
+		"age": 17,
+		"projectDescription": "radiation-resistant AI hardware and quantum intelligence",
+		"fundedDate": "September 19, 2025",
+		"tags": ["deep tech"]
+	},
+	{
+		"name": "Aditi",
+		"link": "https://www.linkedin.com/in/aditi-datla-359554141/",
+		"age": 17,
+		"projectDescription": "wearable biosensors to track and predict hormonal fluctuations",
+		"fundedDate": "July 28, 2025",
+		"tags": ["health tech", "biotech"]
+	},
+	{
+		"name": "Hriday",
+		"link": "https://www.linkedin.com/in/hriday-unadkat/",
+		"age": 21,
+		"projectDescription": "bat-inspired flight mechanics",
+		"fundedDate": "June 26, 2025",
+		"tags": ["deep tech", "aerospace"]
+	},
+	{
+		"name": "Peter",
+		"link": "https://peterhe.dev",
+		"age": 19,
+		"projectDescription": "galvanic Vestibular Stimulation to give people spidey sense",
+		"fundedDate": "May 28, 2025",
+		"tags": ["health tech"]
+	},
+	{
+		"name": "Sebastian",
+		"link": "https://www.linkedin.com/in/sebastian-drezek/",
+		"age": 18,
+		"projectDescription": "the world's first pulse jet powered VTOL",
+		"fundedDate": "June 16, 2025",
+		"tags": ["deep tech", "aerospace"]
+	},
+	{
+		"name": "Chloe",
+		"link": "https://www.linkedin.com/in/chloe-hongan-nguyen/",
+		"age": 19,
+		"projectDescription": "an omni-directional treadmill that takes you anywhere",
+		"fundedDate": "June 16, 2025",
+		"tags": ["hardware"]
+	},
+	{
+		"name": "Diego",
+		"link": null,
+		"age": 19,
+		"projectDescription": "fully autonomous and reusable cargo aapsule",
+		"fundedDate": "June 16, 2025",
+		"tags": ["deep tech", "aerospace"]
+	},
+	{
+		"name": "Sofia",
+		"link": "https://www.linkedin.com/in/sofilipkev",
+		"age": 17,
+		"projectDescription": "VLA models for robotics",
+		"fundedDate": "July 21, 2025",
+		"tags": ["software", "deep tech", "ai/ml", "robotics"]
+	},
+	{
+		"name": "Felicia",
+		"link": "https://www.linkedin.com/in/felicia-iordachi/",
+		"age": 19,
+		"projectDescription": "AI neonatal screening tests",
+		"fundedDate": "June 3, 2025",
+		"tags": ["health tech", "deep tech", "ai/ml"]
+	},
+	{
+		"name": "Shraddhaa",
+		"link": "https://linkedin.com/in/shraddhaamohan",
+		"age": 25,
+		"projectDescription": "open-source bipdeal robot",
+		"fundedDate": "June 2, 2025",
+		"tags": ["robotics"]
+	},
+	{
+		"name": "Livingstone",
+		"link": "https://x.com/LivingstoneAre",
+		"age": 19,
+		"projectDescription": "low-cost NFC attendance system for schools",
+		"fundedDate": "May 2, 2025",
+		"tags": ["software"]
+	},
+	{
+		"name": "Satya",
+		"link": "https://www.linkedin.com/in/satya-shanmugaselvam-596b50326/",
+		"age": 17,
+		"projectDescription": "memory alloy prothesis",
+		"fundedDate": "April 30, 2025",
+		"tags": ["health tech"]
+	},
+	{
+		"name": "Aadeshwar",
+		"link": "https://x.com/crux_dev/status/1880933396744183852",
+		"age": 19,
+		"projectDescription": "hybrid air/ground UAV",
+		"fundedDate": "April 14, 2025",
+		"tags": ["deep tech", "aerospace"]
+	},
+	{
+		"name": "Yash",
+		"link": "https://www.x.com/bagelfund",
+		"age": 20,
+		"projectDescription": "flight computer for model rockets",
+		"fundedDate": "April 7, 2025",
+		"tags": ["aerospace"]
+	},
+	{
+		"name": "Temitope",
+		"link": "https://www.linkedin.com/in/tojtek/",
+		"age": 18,
+		"projectDescription": "solar-enabled phototherapy to treat neonatal jaundice",
+		"fundedDate": "April 7, 2025",
+		"tags": ["health tech"]
+	},
+	{
+		"name": "Pavitra",
+		"link": "https://www.linkedin.com/in/pavitra-patel-62b74823a/",
+		"age": 20,
+		"projectDescription": "reusable model rocket motor",
+		"fundedDate": "March 17, 2025",
+		"tags": ["aerospace"]
+	},
+	{
+		"name": "Begüm",
+		"link": "https://www.linkedin.com/in/begum-zeynep-yapici-b71498301/",
+		"age": 16,
+		"projectDescription": "low-cost bio printer",
+		"fundedDate": "March 5, 2025",
+		"tags": ["health tech", "biotech"]
+	},
+	{
+		"name": "Krupal",
+		"link": "https://x.com/pSwaqtch",
+		"age": 19,
+		"projectDescription": "volumetric display with rotating LED matrix for medical imaging",
+		"fundedDate": "February 14, 2025",
+		"tags": ["health tech"]
+	},
+	{
+		"name": "Dima",
+		"link": "https://x.com/yanovskyd",
+		"age": 24,
+		"projectDescription": "dexterous low-cost robotic arms",
+		"fundedDate": "March 8, 2025",
+		"tags": ["robotics"]
+	},
+	{
+		"name": "Beckett",
+		"link": "https://www.linkedin.com/in/beckett-devoe-566587285",
+		"age": 21,
+		"projectDescription": "computer vision water monitoring to boost shrimp yield by 40%",
+		"fundedDate": "March 8, 2025",
+		"tags": ["software", "deep tech", "ai/ml", "agriculture"]
+	},
+	{
+		"name": "Arya",
+		"link": "http://www.linkedin.com/in/arya-gurumukhi",
+		"age": 16,
+		"projectDescription": "bionic leaf for solar power",
+		"fundedDate": "December 16, 2024",
+		"tags": ["climate", "deep tech"]
+	},
+	{
+		"name": "Akshat",
+		"link": "https://www.linkedin.com/in/akshatsinghania",
+		"age": 16,
+		"projectDescription": "low-cost assistive smart glasses with voice control",
+		"fundedDate": "February 3, 2025",
+		"tags": ["health tech"]
+	},
+	{
+		"name": "Tawheed",
+		"link": "https://x.com/tawheedrahman10",
+		"age": 14,
+		"projectDescription": "low-cost robotic prosthetic hands",
+		"fundedDate": "January 9, 2025",
+		"tags": ["health tech", "robotics"]
+	},
+	{
+		"name": "Opemipo",
+		"link": "https://www.linkedin.com/in/opemipo404/",
+		"age": 17,
+		"projectDescription": "real-time macronutrient tracking for hydroponics",
+		"fundedDate": "January 9, 2025",
+		"tags": ["software", "climate", "agriculture"]
+	},
+	{
+		"name": "Lewis",
+		"link": "https://x.com/bagelfund",
+		"age": 14,
+		"projectDescription": "6-axis robotic arm to assist builders",
+		"fundedDate": "December 16, 2024",
+		"tags": ["robotics"]
+	},
+	{
+		"name": "Lauren",
+		"link": "https://x.com/laurenap_",
+		"age": 20,
+		"projectDescription": "EMG/EEG device for non-verbal communication",
+		"fundedDate": "November 18, 2024",
+		"tags": ["health tech"]
+	},
+	{
+		"name": "Siddharth",
+		"link": "https://x.com/Sid_899",
+		"age": 20,
+		"projectDescription": "affordable autonomous micro drone swarms",
+		"fundedDate": "November 25, 2024",
+		"tags": ["deep tech", "aerospace", "ai/ml"]
+	},
+	{
+		"name": "Neerav",
+		"link": "https://github.com/badPotato1007/",
+		"age": 17,
+		"projectDescription": "small solar-powered planes that fly forever",
+		"fundedDate": "December 6, 2024",
+		"tags": ["climate", "deep tech", "aerospace"]
+	},
+	{
+		"name": "Anirudh",
+		"link": "https://www.linkedin.com/in/anirudh-mazumder/",
+		"age": 17,
+		"projectDescription": "controllers for soft robots for surgery",
+		"fundedDate": "November 8, 2024",
+		"tags": ["health tech", "robotics"]
+	},
+	{
+		"name": "In-Woo",
+		"link": "https://www.linkedin.com/in/in-woopark/",
+		"age": 18,
+		"projectDescription": "clinical decision-support tool for pharmacists",
+		"fundedDate": "October 14, 2024",
+		"tags": ["software", "health tech", "ai/ml"]
+	},
+	{
+		"name": "Maxwell",
+		"link": "https://www.mpkendall.com/",
+		"age": 13,
+		"projectDescription": "radio tracking for high-altitude balloons",
+		"fundedDate": "September 20, 2024",
+		"tags": ["aerospace"]
+	},
+	{
+		"name": "Saras",
+		"link": "https://www.linkedin.com/in/saras-agrawal-6397381b7/",
+		"age": 17,
+		"projectDescription": "on-ear heart attack detection wearable",
+		"fundedDate": "August 21, 2024",
+		"tags": ["health tech"]
+	},
+	{
+		"name": "Carlos",
+		"link": "https://www.linkedin.com/in/carlos-jarqu%C3%ADn-8566691b4/",
+		"age": 19,
+		"projectDescription": "novel chemical processes for mine waste repurposing",
+		"fundedDate": "August 23, 2024",
+		"tags": ["climate"]
+	},
+	{
+		"name": "Ashna",
+		"link": "https://ashnanirula.com/",
+		"age": 17,
+		"projectDescription": "novel CRISPR delivery method in plants",
+		"fundedDate": "September 9, 2024",
+		"tags": ["deep tech", "climate", "biotech", "agriculture"]
+	},
+	{
+		"name": "Charles",
+		"link": "https://cnicholson.vercel.app/",
+		"age": 14,
+		"projectDescription": "building high-altitude UAVs",
+		"fundedDate": "August 16, 2024",
+		"tags": ["deep tech", "aerospace"]
+	},
+	{
+		"name": "Mason",
+		"link": "https://www.linkedin.com/in/mason-graves-unr",
+		"age": 18,
+		"projectDescription": "making a 2-octave electric piano",
+		"fundedDate": "August 9, 2024",
+		"tags": ["hardware"]
+	},
+	{
+		"name": "Harish",
+		"link": "https://x.com/habril27",
+		"age": 15,
+		"projectDescription": "energy-saving smart home platform",
+		"fundedDate": "July 22, 2024",
+		"tags": ["software", "climate"]
+	},
+	{
+		"name": "Santiago",
+		"link": "https://x.com/Santiagds1/status/1813017243891953938",
+		"age": 21,
+		"projectDescription": "4-wheel independent steering car",
+		"fundedDate": "September 2, 2024",
+		"tags": ["hardware"]
+	},
+	{
+		"name": "Yash",
+		"link": "https://x.com/_yashkarthik/status/1811211108151398759",
+		"age": 19,
+		"projectDescription": "creating a computer from scratch",
+		"fundedDate": "August 5, 2024",
+		"tags": ["deep tech"]
+	},
+	{
+		"name": "Sunir",
+		"link": "https://x.com/SunirKM/status/1807638738509636045",
+		"age": 19,
+		"projectDescription": "building self-driving RC cars",
+		"fundedDate": "July 31, 2024",
+		"tags": ["deep tech", "ai/ml"]
+	},
+	{
+		"name": "Aaryan",
+		"link": "https://x.com/aaryankushwahh/status/1797636787290177693",
+		"age": 16,
+		"projectDescription": "using computer vision to detect falls in elder care",
+		"fundedDate": "February 6, 2024",
+		"tags": ["software", "health tech", "ai/ml"]
+	},
+	{
+		"name": "Advait",
+		"link": "https://twitter.com/adv8p",
+		"age": 18,
+		"projectDescription": "building Teleoperation robots",
+		"fundedDate": "August 1, 2024",
+		"tags": ["deep tech", "robotics"]
+	},
+	{
+		"name": "Arielle",
+		"link": "https://x.com/ariellelok/status/1795874524237332913",
+		"age": 20,
+		"projectDescription": "working on Apple Tree cloning",
+		"fundedDate": "August 1, 2024",
+		"tags": ["deep tech", "climate", "biotech", "agriculture"]
+	},
+	{
+		"name": "Winston",
+		"link": "https://twitter.com/WinstonIsk",
+		"age": 17,
+		"projectDescription": "increasing AI literacy for students K-12",
+		"fundedDate": "August 1, 2024",
+		"tags": ["software", "ai/ml"]
+	}
+]
