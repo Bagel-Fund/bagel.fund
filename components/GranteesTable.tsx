@@ -1,6 +1,6 @@
 'use client';
 
-import {useState, useMemo} from 'react';
+import {useState, useMemo, useRef, useEffect} from 'react';
 import type {Grantee, SortField, SortDirection} from '@/types';
 
 const VALID_TAGS = [
@@ -23,10 +23,30 @@ interface GranteesTableProps {
 export default function GranteesTable({grantees}: GranteesTableProps) {
 	const [searchQuery, setSearchQuery] = useState('');
 	const [selectedTags, setSelectedTags] = useState<string[]>([]);
+	const [filterMenuOpen, setFilterMenuOpen] = useState(false);
 	const [sortState, setSortState] = useState<{
 		field: SortField;
 		direction: SortDirection;
-	}>({field: null, direction: 'asc'});
+	}>({field: 'fundedDate', direction: 'desc'});
+	const filterRef = useRef<HTMLDivElement>(null);
+
+	useEffect(() => {
+		if (!filterMenuOpen) return;
+		const handleClickOutside = (e: MouseEvent) => {
+			if (filterRef.current && !filterRef.current.contains(e.target as Node)) {
+				setFilterMenuOpen(false);
+			}
+		};
+		const handleEsc = (e: KeyboardEvent) => {
+			if (e.key === 'Escape') setFilterMenuOpen(false);
+		};
+		document.addEventListener('mousedown', handleClickOutside);
+		document.addEventListener('keydown', handleEsc);
+		return () => {
+			document.removeEventListener('mousedown', handleClickOutside);
+			document.removeEventListener('keydown', handleEsc);
+		};
+	}, [filterMenuOpen]);
 
 	const formatDate = (dateString: string): string => {
 		if (!dateString) return '';
@@ -82,10 +102,18 @@ export default function GranteesTable({grantees}: GranteesTableProps) {
 					bVal = bVal.join(', ');
 				}
 
-				// Handle dates
-				if (sortState.field === 'fundedDate' && aVal && bVal) {
-					aVal = new Date(aVal as string);
-					bVal = new Date(bVal as string);
+				// Handle dates numerically
+				if (sortState.field === 'fundedDate') {
+					const aTime = new Date(aVal as string).getTime();
+					const bTime = new Date(bVal as string).getTime();
+					const comparison = aTime - bTime;
+					return sortState.direction === 'asc' ? comparison : -comparison;
+				}
+
+				// Handle ages numerically
+				if (sortState.field === 'age') {
+					const comparison = Number(aVal) - Number(bVal);
+					return sortState.direction === 'asc' ? comparison : -comparison;
 				}
 
 				// Convert to strings for comparison
@@ -128,31 +156,52 @@ export default function GranteesTable({grantees}: GranteesTableProps) {
 			<h2>Grantees & Projects</h2>
 
 			<div className="searchFilterContainer">
-				<div className="searchContainer">
-					<input
-						type="text"
-						className="searchInput"
-						placeholder="Search by name or project description..."
-						value={searchQuery}
-						onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSearchQuery(e.target.value)}
-					/>
-				</div>
-				<div className="filterContainer">
-					<span className="filterLabel">Filter by tags:</span>
-					<div className="tagFilters">
-						{VALID_TAGS.map((tag: string) => (
-							<label key={tag} className="tagFilterLabel">
-								<input
-									type="checkbox"
-									className="tagCheckbox"
-									value={tag}
-									checked={selectedTags.includes(tag)}
-									onChange={() => handleTagToggle(tag)}
-								/>
-								<span>{tag}</span>
-							</label>
-						))}
-					</div>
+				<input
+					type="text"
+					className="searchInput"
+					placeholder="Search by name or project description..."
+					value={searchQuery}
+					onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSearchQuery(e.target.value)}
+				/>
+				<div className="filterWrapper" ref={filterRef}>
+					<button
+						type="button"
+						className={`filterButton${selectedTags.length > 0 ? ' active' : ''}`}
+						onClick={() => setFilterMenuOpen((prev: boolean) => !prev)}
+						aria-expanded={filterMenuOpen}
+						aria-haspopup="menu"
+					>
+						<svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="currentColor">
+							<path d="M3 5a1 1 0 0 1 1-1h16a1 1 0 0 1 .78 1.625L14 14.33V20a1 1 0 0 1-1.447.894l-3-1.5A1 1 0 0 1 9 18.5V14.33L3.22 5.625A1 1 0 0 1 3 5z" />
+						</svg>
+						<span>Filter</span>
+						{selectedTags.length > 0 && (
+							<span className="filterBadge">{selectedTags.length}</span>
+						)}
+					</button>
+					{filterMenuOpen && (
+						<div className="filterMenu" role="menu">
+							{VALID_TAGS.map((tag: string) => (
+								<label key={tag} className="filterMenuItem">
+									<input
+										type="checkbox"
+										checked={selectedTags.includes(tag)}
+										onChange={() => handleTagToggle(tag)}
+									/>
+									<span>{tag}</span>
+								</label>
+							))}
+							{selectedTags.length > 0 && (
+								<button
+									type="button"
+									className="filterClear"
+									onClick={() => setSelectedTags([])}
+								>
+									Clear filters
+								</button>
+							)}
+						</div>
+					)}
 				</div>
 			</div>
 

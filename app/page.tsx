@@ -23,14 +23,31 @@ export default function Home() {
 				</p>
 				<p>We give microgrants ($100-500) to ambitious young builders.</p>
 				<p>Working on something cool and need some non-dilutive ideation capital? Apply below.</p>
-				<p>
+				<div className="ctaRow">
 					<a
 						href="https://ak-columbia.notion.site/2250cfd9eaa3809db298f27055556489?pvs=105"
 						className="applyButton"
 					>
 						Apply
 					</a>
-				</p>
+					<a
+						href="https://x.com/bagelfund"
+						className="xButton"
+						target="_blank"
+						rel="noopener noreferrer"
+						aria-label="Follow Bagel Fund on X"
+					>
+						<svg
+							viewBox="0 0 24 24"
+							width="16"
+							height="16"
+							aria-hidden="true"
+							fill="currentColor"
+						>
+							<path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+						</svg>
+					</a>
+				</div>
 				<p>We&apos;ll get back to you via email in 48 hours if it&apos;s a good fit.</p>
 				<p>
 					<a href="https://bagelfund.substack.com/">Quarterly Grant Updates Here</a>
@@ -121,52 +138,6 @@ export default function Home() {
 							</a>
 						</li>
 					</ul>
-				</div>
-
-				<div style={{paddingTop: '20px'}}>
-					<p>Want to help us make young people&apos;s dreams come true? Become a donor.</p>
-
-					<div className="donationCards">
-						<div className="donationCard">
-							<h2>Donate $53</h2>
-							<p>Recurring donation funding the next generation of builders</p>
-							<a
-								href="https://buy.stripe.com/6oEdUi9Dw7kA11eeUY"
-								target="_blank"
-								rel="noopener noreferrer"
-							>
-								Donate
-							</a>
-						</div>
-						<div className="donationCard">
-							<h2>Donate $105</h2>
-							<p>Recurring donation funding the next generation of builders</p>
-							<a
-								href="https://buy.stripe.com/14kaI63f87kA7pC9AC"
-								target="_blank"
-								rel="noopener noreferrer"
-							>
-								Donate
-							</a>
-						</div>
-						<div className="donationCard">
-							<h2>Donate $208</h2>
-							<p>Recurring donation funding the next generation of builders</p>
-							<a
-								href="https://buy.stripe.com/cN2dUi9Dw9sI5hubIL"
-								target="_blank"
-								rel="noopener noreferrer"
-							>
-								Donate
-							</a>
-						</div>
-					</div>
-
-					<p className="donationNote">
-						Your donations are tax deductible thanks to our partner 501(c)3 nonprofit with EIN
-						99-1405564. Thank you for supporting young builders working on important problems with
-						scrappy solutions.
-					</p>
 				</div>
 
 				<p style={{paddingTop: '8rem'}}>
