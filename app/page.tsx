@@ -137,6 +137,11 @@ export default function Home() {
 								Tejas Ravishankar
 							</a>
 						</li>
+						<li>
+							<a href="https://twitter.com/AnaArsonist" target="_blank" rel="noopener noreferrer">
+								Ana Howard
+							</a>
+						</li>
 					</ul>
 				</div>
 
