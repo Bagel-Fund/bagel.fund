@@ -48,20 +48,6 @@ export default function GranteesTable({grantees}: GranteesTableProps) {
 		};
 	}, [filterMenuOpen]);
 
-	const formatDate = (dateString: string): string => {
-		if (!dateString) return '';
-		try {
-			const date = new Date(dateString);
-			return date.toLocaleDateString('en-US', {
-				year: 'numeric',
-				month: 'short',
-				day: 'numeric',
-			});
-		} catch (e) {
-			return dateString;
-		}
-	};
-
 	const filteredAndSortedGrantees = useMemo(() => {
 		let filtered = [...grantees];
 
@@ -217,15 +203,12 @@ export default function GranteesTable({grantees}: GranteesTableProps) {
 							<th className="sortable" onClick={() => handleSort('tags')}>
 								Tags <span className="sortIndicator">{getSortIndicator('tags')}</span>
 							</th>
-							<th className="sortable" onClick={() => handleSort('fundedDate')}>
-								Grant Date <span className="sortIndicator">{getSortIndicator('fundedDate')}</span>
-							</th>
 						</tr>
 					</thead>
 					<tbody>
 						{filteredAndSortedGrantees.length === 0 ? (
 							<tr>
-								<td colSpan={5} style={{textAlign: 'center', padding: '2rem'}}>
+								<td colSpan={4} style={{textAlign: 'center', padding: '2rem'}}>
 									No grantees found.
 								</td>
 							</tr>
@@ -248,7 +231,6 @@ export default function GranteesTable({grantees}: GranteesTableProps) {
 											</div>
 										)}
 									</td>
-									<td>{formatDate(grantee.fundedDate)}</td>
 								</tr>
 							))
 						)}
