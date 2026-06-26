@@ -13,7 +13,7 @@ export default defineConfig({
       provider: fontProviders.google(),
       name: "Geist Mono",
       cssVariable: "--font-geist-mono",
-      weights: [400],
+      weights: [400, 500],
       styles: ["normal"],
     },
   ],

@@ -7,14 +7,10 @@ interface Props {
 const { amount, url } = Astro.props;
 ---
 
-<div class="flex flex-col gap-4 rounded-lg bg-zinc-100 p-4">
-  <h2 class="text-base">Donate ${amount}</h2>
-  <p class="text-[0.9rem]">Recurring donation funding the next generation of builders</p>
-  <a
-    href={url}
-    target="_blank"
-    class="rounded-lg bg-zinc-700 px-4 py-2 text-center text-zinc-100 transition-all duration-200 hover:bg-zinc-600"
-  >
-    Donate
-  </a>
+<div class="flex flex-col gap-4 border-2 border-zinc-600 bg-white p-5">
+  <h2 class="text-3xl font-medium">${amount}</h2>
+  <p class="text-sm">
+    Recurring donation funding the next generation of builders
+  </p>
+  <a href={url} target="_blank" class="btn mt-auto">Donate</a>
 </div>
