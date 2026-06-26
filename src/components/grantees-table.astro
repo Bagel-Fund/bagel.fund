@@ -39,7 +39,7 @@ const COLUMNS: readonly Column[] = [
   { label: "Age", sort: "age", thClass: "w-20 min-w-20" },
   { label: "Project" },
   { label: "Tags", sort: "tags", thClass: "w-[150px] max-w-[150px]" },
-  { label: "Grant Date", sort: "fundedDate" },
+  //{ label: "Grant Date", sort: "fundedDate" },
 ];
 
 const TH_CLASS = "p-3 text-left font-medium tracking-wide uppercase";
@@ -67,7 +67,8 @@ const formatDate = (dateString: string) =>
   </div>
 
   <div class="flex flex-col gap-3">
-    <span class="text-xs font-medium tracking-wide uppercase">Filter by tags</span
+    <span class="text-xs font-medium tracking-wide uppercase"
+      >Filter by tags</span
     >
     <div id="tag-filters" class="flex flex-wrap gap-2">
       {
@@ -143,9 +144,9 @@ const formatDate = (dateString: string) =>
                 ))}
               </div>
             </td>
-            <td class:list={[CELL_CLASS, "whitespace-nowrap"]}>
+            <!-- <td class:list={[CELL_CLASS, "whitespace-nowrap"]}>
               {formatDate(grantee.fundedDate)}
-            </td>
+            </td> -->
           </tr>
         ))
       }
