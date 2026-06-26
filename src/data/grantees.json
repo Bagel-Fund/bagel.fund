@@ -1,5 +1,13 @@
 [
 	{
+		"name": "Ayush",
+		"link": "https://drive.google.com/file/d/16nGeD7uU7q48VxUGerGkzOckeNJon-PU/view?usp=sharing",
+		"age": 19,
+		"projectDescription": "real-time defence planning for drone data",
+		"fundedDate": "February 18, 2026",
+		"tags": ["hardware", "ai/ml", "software"]
+	},
+	{
 		"name": "Daniel",
 		"link": "https://psytech.art",
 		"age": 25,
@@ -217,7 +225,7 @@
 	},
 	{
 		"name": "Lewis",
-		"link": "https://x.com/bagelfund",
+		"link": "https://crankyvase.site",
 		"age": 14,
 		"projectDescription": "6-axis robotic arm to assist builders",
 		"fundedDate": "December 16, 2024",

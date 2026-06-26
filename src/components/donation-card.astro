@@ -1,0 +1,16 @@
+---
+interface Props {
+  amount: number;
+  url: string;
+}
+
+const { amount, url } = Astro.props;
+---
+
+<div class="flex flex-col gap-4 border-2 border-zinc-600 bg-white p-5">
+  <h2 class="text-3xl font-medium">${amount}</h2>
+  <p class="text-sm">
+    Recurring donation funding the next generation of builders
+  </p>
+  <a href={url} target="_blank" class="btn mt-auto">Donate</a>
+</div>

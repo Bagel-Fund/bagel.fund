@@ -1,0 +1,164 @@
+---
+type SortField = "age" | "tags" | "fundedDate";
+
+interface Grantee {
+  name: string;
+  link: string | null;
+  age: number;
+  projectDescription: string;
+  fundedDate: string;
+  tags: string[];
+}
+
+interface Column {
+  label: string;
+  sort?: SortField;
+  thClass?: string;
+}
+
+interface Props {
+  grantees: Grantee[];
+}
+
+const { grantees } = Astro.props;
+
+const FILTER_TAGS = [
+  "software",
+  "deep tech",
+  "health tech",
+  "climate",
+  "robotics",
+  "aerospace",
+  "ai/ml",
+  "biotech",
+  "agriculture",
+] as const;
+
+const COLUMNS: readonly Column[] = [
+  { label: "Name" },
+  { label: "Age", sort: "age", thClass: "w-20 min-w-20" },
+  { label: "Project" },
+  { label: "Tags", sort: "tags", thClass: "w-[150px] max-w-[150px]" },
+  //{ label: "Grant Date", sort: "fundedDate" },
+];
+
+const TH_CLASS = "p-3 text-left font-medium tracking-wide uppercase";
+const SORTABLE_CLASS =
+  "sortable cursor-pointer select-none whitespace-nowrap hover:bg-zinc-700";
+const SORT_INDICATOR_CLASS = "sort-indicator ml-2 text-xs text-zinc-400";
+const CELL_CLASS = "border-b border-zinc-200 p-3 align-top";
+
+const formatDate = (dateString: string) =>
+  new Date(dateString).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  });
+---
+
+<div class="my-4 border-2 border-zinc-600 p-4">
+  <div class="mb-4">
+    <input
+      type="text"
+      id="search-input"
+      placeholder="Search by name or project description..."
+      class="w-full border-2 border-zinc-600 bg-white p-3 text-sm placeholder:text-zinc-500 focus:bg-zinc-50 focus:outline-none"
+    />
+  </div>
+
+  <div class="flex flex-col gap-3">
+    <span class="text-xs font-medium tracking-wide uppercase"
+      >Filter by tags</span
+    >
+    <div id="tag-filters" class="flex flex-wrap gap-2">
+      {
+        FILTER_TAGS.map((tag) => (
+          <label class="cursor-pointer text-xs tracking-wide uppercase">
+            <input
+              type="checkbox"
+              class="tag-checkbox peer sr-only"
+              value={tag}
+            />
+            <span class="inline-block border-2 border-zinc-600 px-2 py-1 transition-colors select-none peer-checked:bg-zinc-600 peer-checked:text-zinc-50 peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2">
+              {tag}
+            </span>
+          </label>
+        ))
+      }
+    </div>
+  </div>
+</div>
+
+<div
+  id="grantees-container"
+  class="my-4 overflow-x-auto border-2 border-zinc-800"
+>
+  <table id="grantees-table" class="w-full border-collapse text-sm">
+    <thead class="bg-zinc-900 text-zinc-50">
+      <tr>
+        {
+          COLUMNS.map((col) => (
+            <th
+              class:list={[
+                TH_CLASS,
+                col.thClass,
+                col.sort ? SORTABLE_CLASS : "",
+              ]}
+              data-sort={col.sort}
+            >
+              {col.label}{" "}
+              {col.sort ? <span class={SORT_INDICATOR_CLASS}>↕</span> : null}
+            </th>
+          ))
+        }
+      </tr>
+    </thead>
+    <tbody id="grantees-tbody">
+      {
+        grantees.map((grantee) => (
+          <tr
+            class="grantee-row hover:bg-zinc-50"
+            data-name={grantee.name.toLowerCase()}
+            data-desc={grantee.projectDescription.toLowerCase()}
+            data-tags={grantee.tags.join(",").toLowerCase()}
+            data-age={grantee.age}
+            data-date={Date.parse(grantee.fundedDate)}
+          >
+            <td class={CELL_CLASS}>
+              {grantee.link ? (
+                <a href={grantee.link} target="_blank" class="underline">
+                  {grantee.name}
+                </a>
+              ) : (
+                grantee.name
+              )}
+            </td>
+            <td class={CELL_CLASS}>{grantee.age}</td>
+            <td class={CELL_CLASS}>{grantee.projectDescription}</td>
+            <td class={CELL_CLASS}>
+              <div class="flex flex-wrap gap-2">
+                {grantee.tags.map((tag) => (
+                  <span class="inline-block whitespace-nowrap border border-zinc-400 px-1.5 py-0.5 text-xs uppercase">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </td>
+            <!-- <td class:list={[CELL_CLASS, "whitespace-nowrap"]}>
+              {formatDate(grantee.fundedDate)}
+            </td> -->
+          </tr>
+        ))
+      }
+      <tr id="no-results" class="hidden">
+        <td colspan="5" class="p-8 text-center text-zinc-500"
+          >No grantees found.</td
+        >
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<script>
+  import "@/helpers/grantees-table";
+</script>
