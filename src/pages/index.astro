@@ -29,7 +29,8 @@ const DONATION_TIERS = [
 
 // stripe one-time ("name your amount") payment link.
 // the tier links above are recurring subscriptions, do not reuse them here.
-const ONE_TIME_DONATION_URL = "https://donate.stripe.com/00w5kD9EWgbC2V85Yngbm04";
+const ONE_TIME_DONATION_URL =
+  "https://donate.stripe.com/00w5kD9EWgbC2V85Yngbm04";
 
 const CONTACT_MAILTO =
   "mailto:aridutilh@gmail.com,alexa@kayman.ventures?subject=Bagel%20Grant%20Question";
@@ -133,8 +134,8 @@ const grantees = granteesEntries
           <div>
             <h3 class="text-lg font-medium">Give once, any amount</h3>
             <p class="text-sm">
-              A single donation, you choose how much, funding the next generation
-              of builders.
+              A single donation of any amount, funding the next generation of
+              builders.
             </p>
           </div>
           <a href={ONE_TIME_DONATION_URL} target="_blank" class="btn shrink-0">
