@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+@theme {
+  --font-mono: var(--font-geist-mono), monospace;
+}
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  color: var(--color-zinc-700);
+  font-family: var(--font-geist-mono), monospace;
+}
+
+/* anchors are blue by default; button-style links override with their own text-* utility.
+   must live in @layer base so tailwind utilities (a higher layer) can win over it */
+@layer base {
+  a {
+    color: var(--color-blue-600);
+  }
+
+  a:hover {
+    color: var(--color-blue-700);
+  }
+}

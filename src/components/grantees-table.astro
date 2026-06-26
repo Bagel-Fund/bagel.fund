@@ -1,0 +1,163 @@
+---
+type SortField = "age" | "tags" | "fundedDate";
+
+interface Grantee {
+  name: string;
+  link: string | null;
+  age: number;
+  projectDescription: string;
+  fundedDate: string;
+  tags: string[];
+}
+
+interface Column {
+  label: string;
+  sort?: SortField;
+  thClass?: string;
+}
+
+interface Props {
+  grantees: Grantee[];
+}
+
+const { grantees } = Astro.props;
+
+const FILTER_TAGS = [
+  "software",
+  "deep tech",
+  "health tech",
+  "climate",
+  "robotics",
+  "aerospace",
+  "ai/ml",
+  "biotech",
+  "agriculture",
+] as const;
+
+const COLUMNS: readonly Column[] = [
+  { label: "Name" },
+  { label: "Age", sort: "age", thClass: "w-20 min-w-20" },
+  { label: "Project" },
+  { label: "Tags", sort: "tags", thClass: "w-[150px] max-w-[150px]" },
+  { label: "Grant Date", sort: "fundedDate" },
+];
+
+const TH_CLASS = "border-b-2 border-zinc-700 p-3 py-3 text-left font-normal";
+const SORTABLE_CLASS =
+  "sortable cursor-pointer select-none whitespace-nowrap hover:bg-zinc-200";
+const SORT_INDICATOR_CLASS = "sort-indicator ml-2 text-[0.7rem] text-zinc-500";
+const CELL_CLASS = "border-b border-zinc-200 p-3 align-top";
+
+const formatDate = (dateString: string) =>
+  new Date(dateString).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  });
+---
+
+<div class="my-4 rounded-lg bg-zinc-50 p-4">
+  <div class="mb-4">
+    <input
+      type="text"
+      id="search-input"
+      placeholder="Search by name or project description..."
+      class="w-full text-xs rounded border border-zinc-200 bg-white p-3 focus:border-zinc-700 focus:outline-none"
+    />
+  </div>
+
+  <div class="flex flex-col gap-3">
+    <span class="text-xs">Filter by tags:</span>
+    <div id="tag-filters" class="flex flex-wrap gap-3">
+      {
+        FILTER_TAGS.map((tag) => (
+          <label class="group flex cursor-pointer select-none items-center gap-2 text-xs">
+            <input
+              type="checkbox"
+              class="tag-checkbox peer size-3 cursor-pointer"
+              value={tag}
+            />
+            <span class="rounded bg-zinc-200 px-2 py-1 transition-all duration-200 group-hover:bg-zinc-300 peer-checked:bg-zinc-700 peer-checked:text-zinc-100">
+              {tag}
+            </span>
+          </label>
+        ))
+      }
+    </div>
+  </div>
+</div>
+
+<div id="grantees-container" class="my-4 overflow-x-auto">
+  <table id="grantees-table" class="w-full border-collapse text-sm">
+    <thead class="bg-zinc-100">
+      <tr>
+        {
+          COLUMNS.map((col) => (
+            <th
+              class:list={[
+                TH_CLASS,
+                col.thClass,
+                col.sort ? SORTABLE_CLASS : "",
+              ]}
+              data-sort={col.sort}
+            >
+              {col.label}{" "}
+              {col.sort ? <span class={SORT_INDICATOR_CLASS}>↕</span> : null}
+            </th>
+          ))
+        }
+      </tr>
+    </thead>
+    <tbody id="grantees-tbody">
+      {
+        grantees.map((grantee) => (
+          <tr
+            class="grantee-row hover:bg-zinc-50"
+            data-name={grantee.name.toLowerCase()}
+            data-desc={grantee.projectDescription.toLowerCase()}
+            data-tags={grantee.tags.join(",").toLowerCase()}
+            data-age={grantee.age}
+            data-date={Date.parse(grantee.fundedDate)}
+          >
+            <td class={CELL_CLASS}>
+              {grantee.link ? (
+                <a
+                  href={grantee.link}
+                  target="_blank"
+                  class="text-blue-600 underline hover:text-blue-700"
+                >
+                  {grantee.name}
+                </a>
+              ) : (
+                grantee.name
+              )}
+            </td>
+            <td class={CELL_CLASS}>{grantee.age}</td>
+            <td class={CELL_CLASS}>{grantee.projectDescription}</td>
+            <td class={CELL_CLASS}>
+              <div class="flex flex-wrap gap-2">
+                {grantee.tags.map((tag) => (
+                  <span class="inline-block whitespace-nowrap rounded bg-zinc-200 px-2 py-1 text-[0.8rem]">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </td>
+            <td class:list={[CELL_CLASS, "whitespace-nowrap"]}>
+              {formatDate(grantee.fundedDate)}
+            </td>
+          </tr>
+        ))
+      }
+      <tr id="no-results" class="hidden">
+        <td colspan="5" class="p-8 text-center text-zinc-500"
+          >No grantees found.</td
+        >
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<script>
+  import "@/helpers/grantees-table";
+</script>

@@ -1,0 +1,180 @@
+---
+import { getCollection } from "astro:content";
+import { Font } from "astro:assets";
+import BagelAnimation from "@/components/bagel-animation.astro";
+import GranteesTable from "@/components/grantees-table.astro";
+import DonationCard from "@/components/donation-card.astro";
+import "@/styles/global.css";
+
+const FOUNDERS = [
+  { name: "Adarsh Krishna", url: "https://twitter.com/nebulatgs" },
+  { name: "Alistair Smith", url: "https://twitter.com/alistaiir" },
+  { name: "Alexa Kayman", url: "https://twitter.com/alexakayman" },
+  { name: "Andrew Nijmeh", url: "https://nijmeh.world/" },
+  { name: "Ari Dutilh", url: "https://twitter.com/aridutilh" },
+  { name: "Brandon Saldan", url: "https://twitter.com/brandonsaldan" },
+  { name: "Cody Miller", url: "https://twitter.com/devlooskie" },
+  { name: "Conrad Crawford", url: "https://twitter.com/notcnrad" },
+  { name: "Landon Boles", url: "https://twitter.com/landon_xyz" },
+  { name: "Miguel Piedrafita", url: "https://twitter.com/m1guelpf" },
+  { name: "Robert Westbury", url: "https://twitter.com/roberttwestbury" },
+  { name: "Tejas Ravishankar", url: "https://twitter.com/suptejas" },
+] as const;
+
+const DONATION_TIERS = [
+  { amount: 53, url: "https://buy.stripe.com/eVq3cv7wOcZqdzMbiHgbm01" },
+  { amount: 105, url: "https://buy.stripe.com/bJefZhbN45wY67kaeDgbm00" },
+  { amount: 208, url: "https://buy.stripe.com/6oU00jeZgf7yanA3Qfgbm02" },
+] as const;
+
+const CONTACT_MAILTO =
+  "mailto:aridutilh@gmail.com,alexa@kayman.ventures?subject=Bagel%20Grant%20Question";
+
+// preserve the original json ordering (ids are numeric array indexes as strings)
+const granteesEntries = await getCollection("grantees");
+const grantees = granteesEntries
+  .sort((a, b) => Number(a.id) - Number(b.id))
+  .map((entry) => entry.data);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+    />
+    <title>Bagel Fund</title>
+    <Font cssVariable="--font-geist-mono" preload />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <meta property="og:title" content="Bagel Fund" />
+    <meta
+      property="og:description"
+      content="$100-500 micro-grants for young ambitious builders."
+    />
+    <meta property="og:image" content="https://bagel.fund/og-image.webp" />
+    <meta property="og:url" content="https://bagel.fund/" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Bagel Fund" />
+    <meta
+      name="twitter:description"
+      content="$100-500 micro-grants for young ambitious builders."
+    />
+    <meta name="twitter:image" content="https://bagel.fund/og-image.webp" />
+    <meta name="twitter:url" content="https://bagel.fund/" />
+    <script async src="https://cdn.splitbee.io/sb.js" is:inline></script>
+    <script
+      async
+      src="https://cdn.seline.com/seline.js"
+      data-token="e20a4df338bf61a"
+      is:inline></script>
+  </head>
+
+  <body class="flex px-5 pb-12 text-[0.8rem]">
+    <div id="root" class="mx-auto max-w-180">
+      <BagelAnimation />
+      <h1 class="pb-4 text-2xl font-bold">Bagel Fund</h1>
+
+      <div>
+        <p class="pb-4">
+          What is Bagel Fund? We're a friend group in tech that wants to support
+          young people working on important problems with scrappy solutions.
+        </p>
+        <p class="pb-4">
+          We give microgrants ($100-500) to ambitious young builders.
+        </p>
+        <p class="pb-4">
+          Working on something cool and need some non-dilutive ideation capital?
+          Apply below.
+        </p>
+        <p class="pb-4">
+          <a
+            href="https://ak-columbia.notion.site/2250cfd9eaa3809db298f27055556489?pvs=105"
+            class="inline-block rounded-lg bg-zinc-800 px-3 py-1.5 text-zinc-100 transition-all duration-200 hover:bg-zinc-600"
+          >
+            Apply
+          </a>
+        </p>
+        <p class="pb-4">
+          We'll get back to you via email in 48 hours if it's a good fit.
+        </p>
+        <p class="pb-4">
+          <a href="https://bagelfund.substack.com/" class="underline"
+            >Quarterly Grant Updates Here</a
+          >
+        </p>
+      </div>
+
+      <br />
+
+      <div class="pt-5 mb-8">
+        <h2 class="text-xl">Donate</h2>
+        <p class="pb-4">
+          Want to help us make young people's dreams come true? Become a donor.
+        </p>
+
+        <div class="grid grid-cols-1 gap-4 pb-4 sm:grid-cols-3">
+          {
+            DONATION_TIERS.map((tier) => (
+              <DonationCard amount={tier.amount} url={tier.url} />
+            ))
+          }
+        </div>
+
+        <p class="text-center text-[0.8rem] text-zinc-600">
+          Your donations are tax deductible. Thank you for supporting young
+          builders working on important problems with scrappy solutions.
+        </p>
+      </div>
+
+      <br />
+
+      <div>
+        <div>
+          <h2 class="text-xl">Grantees & Projects</h2>
+          <p class="pb-4">
+            Want to meet one of the grantees?{" "}
+            <a href={CONTACT_MAILTO} class="underline">Email us</a> to meet a grantee.
+          </p>
+
+          <GranteesTable grantees={grantees} />
+        </div>
+
+        <div class="pt-5">
+          <p class="pb-4">
+            Reach out to{" "}
+            <a href={CONTACT_MAILTO} target="_blank" class="underline"
+              >Ari and Alexa</a
+            >{" "}
+            if you have questions about your application. Bagel Fund was founded by:
+          </p>
+
+          <ul class="ml-4 list-none">
+            {
+              FOUNDERS.map((founder) => (
+                <li class="ml-4 leading-[1.3rem]">
+                  <a href={founder.url} target="_blank" class="underline">
+                    {founder.name}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+
+        <p class="pt-24">Bagel Fund is a 501(c)3 nonprofit. EIN: 33-2899896.</p>
+        <p class="pb-4">
+          <a
+            href="https://www.youtube.com/watch?v=_u2B3yDnxKg&ab_channel=rebelstasia"
+            target="_blank"
+            class="underline"
+          >
+            get sucked into the bagel
+          </a>
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

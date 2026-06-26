@@ -25,7 +25,7 @@ bun install
 # Run development server
 npm run dev
 # or
-    bun run dev
+bun run dev
 ```
 
 The server will start at http://localhost:3000
@@ -33,13 +33,6 @@ The server will start at http://localhost:3000
 ### Building for production
 
 ```bash
-npm run build
-npm start
+bun run build
+bun start
 ```
-
-## Tech Stack
-
-- Next.js 14 (App Router)
-- React 18
-- TypeScript
-- CSS Modules
