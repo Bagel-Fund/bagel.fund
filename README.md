@@ -11,20 +11,13 @@ Working on something cool and need some non-dilutive ideation capital? Apply at 
 
 ### Prerequisites
 
-- Node.js 18+ or Bun installed
-- npm, yarn, pnpm, or bun package manager
+- Bun installed
 
 ### Running locally
 
 ```bash
-# Install dependencies
-npm install
-# or
 bun install
 
-# Run development server
-npm run dev
-# or
 bun run dev
 ```
 

@@ -2,6 +2,10 @@
 dist/
 # generated types
 .astro/
+.wrangler
+
+# we have nothing sepcial in here. (atm)
+worker-configuration.d.ts
 
 # dependencies
 node_modules/
