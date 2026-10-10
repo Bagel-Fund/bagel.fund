@@ -37,7 +37,7 @@
 		"age": 19,
 		"projectDescription": "financial exchanges for music by letting fans bet on artists",
 		"fundedDate": "December 12, 2025",
-		"tags": ["software"]
+		"tags": ["software", "music"]
 	},
 	{
 		"name": "Anusha",
@@ -67,9 +67,9 @@
 		"name": "Peter",
 		"link": "https://peterhe.dev",
 		"age": 19,
-		"projectDescription": "galvanic Vestibular Stimulation to give people spidey sense",
+		"projectDescription": "galvanic vestibular stimulation to give people spidey sense",
 		"fundedDate": "May 28, 2025",
-		"tags": ["health tech"]
+		"tags": ["health tech", "hardware"]
 	},
 	{
 		"name": "Sebastian",
@@ -91,7 +91,7 @@
 		"name": "Diego",
 		"link": null,
 		"age": 19,
-		"projectDescription": "fully autonomous and reusable cargo aapsule",
+		"projectDescription": "fully autonomous and reusable cargo capsule",
 		"fundedDate": "June 16, 2025",
 		"tags": ["hardware", "aerospace"]
 	},
@@ -115,9 +115,9 @@
 		"name": "Shraddhaa",
 		"link": "https://linkedin.com/in/shraddhaamohan",
 		"age": 25,
-		"projectDescription": "open-source bipdeal robot",
+		"projectDescription": "open-source bipedal robot",
 		"fundedDate": "June 2, 2025",
-		"tags": ["robotics"]
+		"tags": ["robotics", "hardware"]
 	},
 	{
 		"name": "Livingstone",
@@ -125,15 +125,15 @@
 		"age": 19,
 		"projectDescription": "low-cost NFC attendance system for schools",
 		"fundedDate": "May 2, 2025",
-		"tags": ["software"]
+		"tags": ["software", "hardware"]
 	},
 	{
 		"name": "Satya",
 		"link": "https://www.linkedin.com/in/satya-shanmugaselvam-596b50326/",
 		"age": 17,
-		"projectDescription": "memory alloy prothesis",
+		"projectDescription": "memory alloy prosthesis",
 		"fundedDate": "April 30, 2025",
-		"tags": ["health tech"]
+		"tags": ["health tech", "hardware"]
 	},
 	{
 		"name": "Aadeshwar",
@@ -149,7 +149,7 @@
 		"age": 20,
 		"projectDescription": "flight computer for model rockets",
 		"fundedDate": "April 7, 2025",
-		"tags": ["aerospace"]
+		"tags": ["aerospace", "hardware"]
 	},
 	{
 		"name": "Temitope",
@@ -157,7 +157,7 @@
 		"age": 18,
 		"projectDescription": "solar-enabled phototherapy to treat neonatal jaundice",
 		"fundedDate": "April 7, 2025",
-		"tags": ["health tech"]
+		"tags": ["health tech", "hardware"]
 	},
 	{
 		"name": "Pavitra",
@@ -165,7 +165,7 @@
 		"age": 20,
 		"projectDescription": "reusable model rocket motor",
 		"fundedDate": "March 17, 2025",
-		"tags": ["aerospace"]
+		"tags": ["aerospace", "hardware"]
 	},
 	{
 		"name": "Begüm",
@@ -181,7 +181,7 @@
 		"age": 19,
 		"projectDescription": "volumetric display with rotating LED matrix for medical imaging",
 		"fundedDate": "February 14, 2025",
-		"tags": ["health tech"]
+		"tags": ["health tech", "hardware"]
 	},
 	{
 		"name": "Dima",
@@ -189,7 +189,7 @@
 		"age": 24,
 		"projectDescription": "dexterous low-cost robotic arms",
 		"fundedDate": "March 8, 2025",
-		"tags": ["robotics"]
+		"tags": ["robotics", "hardware"]
 	},
 	{
 		"name": "Beckett",
@@ -213,7 +213,7 @@
 		"age": 16,
 		"projectDescription": "low-cost assistive smart glasses with voice control",
 		"fundedDate": "February 3, 2025",
-		"tags": ["health tech"]
+		"tags": ["health tech", "hardware"]
 	},
 	{
 		"name": "Tawheed",
@@ -221,7 +221,7 @@
 		"age": 14,
 		"projectDescription": "low-cost robotic prosthetic hands",
 		"fundedDate": "January 9, 2025",
-		"tags": ["health tech", "robotics"]
+		"tags": ["health tech", "robotics", "hardware"]
 	},
 	{
 		"name": "Opemipo",
@@ -237,7 +237,7 @@
 		"age": 14,
 		"projectDescription": "6-axis robotic arm to assist builders",
 		"fundedDate": "December 16, 2024",
-		"tags": ["robotics"]
+		"tags": ["robotics", "hardware"]
 	},
 	{
 		"name": "Lauren",
@@ -245,7 +245,7 @@
 		"age": 20,
 		"projectDescription": "EMG/EEG device for non-verbal communication",
 		"fundedDate": "November 18, 2024",
-		"tags": ["health tech"]
+		"tags": ["health tech", "hardware"]
 	},
 	{
 		"name": "Siddharth",
@@ -269,7 +269,7 @@
 		"age": 17,
 		"projectDescription": "controllers for soft robots for surgery",
 		"fundedDate": "November 8, 2024",
-		"tags": ["health tech", "robotics"]
+		"tags": ["health tech", "robotics", "hardware"]
 	},
 	{
 		"name": "In-Woo",
@@ -285,7 +285,7 @@
 		"age": 13,
 		"projectDescription": "radio tracking for high-altitude balloons",
 		"fundedDate": "September 20, 2024",
-		"tags": ["aerospace"]
+		"tags": ["aerospace", "hardware"]
 	},
 	{
 		"name": "Saras",
@@ -293,7 +293,7 @@
 		"age": 17,
 		"projectDescription": "on-ear heart attack detection wearable",
 		"fundedDate": "August 21, 2024",
-		"tags": ["health tech"]
+		"tags": ["health tech", "hardware"]
 	},
 	{
 		"name": "Carlos",
@@ -325,7 +325,7 @@
 		"age": 18,
 		"projectDescription": "making a 2-octave electric piano",
 		"fundedDate": "August 9, 2024",
-		"tags": ["hardware"]
+		"tags": ["hardware", "music"]
 	},
 	{
 		"name": "Harish",
@@ -371,7 +371,7 @@
 		"name": "Advait",
 		"link": "https://twitter.com/adv8p",
 		"age": 18,
-		"projectDescription": "building Teleoperation robots",
+		"projectDescription": "building teleoperation robots",
 		"fundedDate": "August 1, 2024",
 		"tags": ["hardware", "robotics"]
 	},
@@ -379,7 +379,7 @@
 		"name": "Arielle",
 		"link": "https://x.com/ariellelok/status/1795874524237332913",
 		"age": 20,
-		"projectDescription": "working on Apple Tree cloning",
+		"projectDescription": "working on apple tree cloning",
 		"fundedDate": "August 1, 2024",
 		"tags": ["biotech", "agriculture"]
 	},
