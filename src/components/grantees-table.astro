@@ -80,7 +80,7 @@ const formatDate = (dateString: string) =>
               class="tag-checkbox peer sr-only"
               value={tag}
             />
-            <span class="inline-block border border-line px-2 py-1 text-muted transition-colors select-none hover:border-line-strong hover:text-ink peer-checked:border-ink peer-checked:bg-ink peer-checked:text-paper peer-focus-visible:outline-1 peer-focus-visible:outline-offset-2">
+            <span class="inline-block border border-line px-2 py-1 text-muted select-none hover:border-line-strong hover:text-ink peer-checked:border-ink peer-checked:bg-ink peer-checked:text-paper peer-focus-visible:outline-1 peer-focus-visible:outline-offset-2">
               {tag}
             </span>
           </label>
@@ -118,7 +118,7 @@ const formatDate = (dateString: string) =>
       {
         grantees.map((grantee) => (
           <tr
-            class="grantee-row transition-colors hover:bg-sunken"
+            class="grantee-row hover:bg-sunken"
             data-name={grantee.name.toLowerCase()}
             data-desc={grantee.projectDescription.toLowerCase()}
             data-tags={grantee.tags.join(",").toLowerCase()}

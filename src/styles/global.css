@@ -82,9 +82,9 @@ body {
     @apply mb-5 border-b border-line pb-2 text-xs tracking-widest text-muted uppercase;
   }
 
-  /* square invert button: solid ink, softens on hover */
+  /* square invert button: solid ink, flips to the link colour on hover like links do */
   .btn {
-    @apply inline-block border border-ink bg-ink px-4 py-2 text-center tracking-wide text-paper uppercase transition-opacity hover:text-paper hover:opacity-80;
+    @apply inline-block border border-ink bg-ink px-4 py-2 text-center tracking-wide text-paper uppercase hover:border-link hover:bg-link hover:text-paper;
   }
 
   /* bordered box used for cards and panels */
