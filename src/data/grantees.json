@@ -13,7 +13,7 @@
 		"age": 19,
 		"projectDescription": "real-time defence planning for drone data",
 		"fundedDate": "February 18, 2026",
-		"tags": ["hardware", "ai/ml", "software"]
+		"tags": ["ai/ml", "software", "aerospace"]
 	},
 	{
 		"name": "Daniel",
@@ -253,7 +253,7 @@
 		"age": 20,
 		"projectDescription": "affordable autonomous micro drone swarms",
 		"fundedDate": "November 25, 2024",
-		"tags": ["hardware", "aerospace", "ai/ml"]
+		"tags": ["hardware", "aerospace", "ai/ml", "robotics"]
 	},
 	{
 		"name": "Neerav",
@@ -357,7 +357,7 @@
 		"age": 19,
 		"projectDescription": "building self-driving RC cars",
 		"fundedDate": "July 31, 2024",
-		"tags": ["hardware", "ai/ml"]
+		"tags": ["hardware", "ai/ml", "robotics"]
 	},
 	{
 		"name": "Aaryan",
