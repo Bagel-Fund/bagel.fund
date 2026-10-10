@@ -1,38 +1,98 @@
 @import "tailwindcss";
 
 @theme {
-  --font-mono: var(--font-geist-mono), monospace;
+  --font-mono: var(--font-departure-mono), monospace;
+}
+
+/* semantic colors, flipped for dark mode below. use these (bg-paper, text-muted,
+   border-line...) instead of raw zinc shades so both themes stay in sync */
+@theme inline {
+  --color-paper: var(--paper);
+  --color-surface: var(--surface);
+  --color-sunken: var(--sunken);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-link: var(--link);
 }
 
 :root {
-  color-scheme: light;
+  color-scheme: light dark;
+
+  --paper: var(--color-stone-50);
+  --surface: var(--color-white);
+  --sunken: var(--color-stone-100);
+  --ink: var(--color-zinc-900);
+  --muted: var(--color-zinc-500);
+  --line: var(--color-zinc-200);
+  --line-strong: var(--color-zinc-400);
+  --link: var(--color-blue-600);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: var(--color-zinc-950);
+    --surface: var(--color-zinc-900);
+    --sunken: oklch(0.18 0.004 286);
+    --ink: var(--color-zinc-100);
+    --muted: var(--color-zinc-400);
+    --line: var(--color-zinc-800);
+    --line-strong: var(--color-zinc-600);
+    --link: var(--color-blue-400);
+  }
 }
 
 body {
-  color: var(--color-zinc-900);
-  font-family: var(--font-geist-mono), monospace;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-departure-mono), monospace;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--ink);
+  color: var(--paper);
 }
 
 /* anchors are blue by default; button-style links override with their own text-* utility.
    must live in @layer base so tailwind utilities (a higher layer) can win over it */
 @layer base {
   a {
-    color: var(--color-blue-600);
+    color: var(--link);
+    text-underline-offset: 3px;
   }
 
+  /* terminal-style hover: the link inverts into a solid block */
   a:hover {
-    color: var(--color-blue-700);
+    background: var(--link);
+    color: var(--paper);
+    text-decoration: none;
+  }
+
+  :focus-visible {
+    outline: 1px solid var(--ink);
+    outline-offset: 2px;
   }
 }
 
 @layer components {
-  /* hard-edged section divider heading, the brutalist backbone of the page */
+  /* quiet section divider heading */
   .section-heading {
-    @apply mb-4 border-b-2 border-zinc-600 pb-2 text-lg text-zinc-600 font-medium tracking-wide uppercase;
+    @apply mb-5 border-b border-line pb-2 text-xs tracking-widest text-muted uppercase;
   }
 
-  /* square invert button: solid ink, flips to paper on hover */
+  /* square invert button: solid ink, softens on hover */
   .btn {
-    @apply inline-block border-2 border-zinc-900 bg-zinc-900 px-4 py-2 text-center font-medium tracking-wide text-zinc-50 uppercase transition-colors hover:bg-zinc-600;
+    @apply inline-block border border-ink bg-ink px-4 py-2 text-center tracking-wide text-paper uppercase transition-opacity hover:text-paper hover:opacity-80;
+  }
+
+  /* bordered box used for cards and panels */
+  .panel {
+    @apply border border-line bg-surface;
+  }
+
+  .eyebrow {
+    @apply pb-2 text-xs tracking-widest text-muted uppercase;
   }
 }

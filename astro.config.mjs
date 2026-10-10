@@ -14,11 +14,18 @@ export default defineConfig({
 
   fonts: [
     {
-      provider: fontProviders.google(),
-      name: "Geist Mono",
-      cssVariable: "--font-geist-mono",
-      weights: [400, 500],
-      styles: ["normal"],
+      provider: fontProviders.local(),
+      name: "Departure Mono",
+      cssVariable: "--font-departure-mono",
+      options: {
+        variants: [
+          {
+            src: ["./src/assets/fonts/departure-mono.woff2"],
+            weight: 400,
+            style: "normal",
+          },
+        ],
+      },
     },
   ],
 

@@ -51,7 +51,7 @@ const grantees = granteesEntries
       content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
     />
     <title>Bagel Fund</title>
-    <Font cssVariable="--font-geist-mono" preload />
+    <Font cssVariable="--font-departure-mono" preload />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <meta property="og:title" content="Bagel Fund" />
     <meta
@@ -81,7 +81,7 @@ const grantees = granteesEntries
   <body class="flex px-5 pb-12 text-sm">
     <div id="root" class="mx-auto max-w-180">
       <BagelAnimation />
-      <h1 class="pb-4 text-3xl font-medium tracking-tight">Bagel Fund</h1>
+      <h1 class="pb-4 text-3xl">Bagel Fund</h1>
 
       <div>
         <p class="pb-4">
@@ -119,18 +119,18 @@ const grantees = granteesEntries
           Want to help us make young people's dreams come true? Become a donor.
         </p>
 
-        <p class="pb-2 text-xs font-medium tracking-wide uppercase">Monthly</p>
+        <p class="eyebrow">Monthly</p>
         <div class="grid grid-cols-1 gap-4 pb-4 sm:grid-cols-3">
           {DONATION_TIERS.map((tier) => (
             <DonationCard amount={tier.amount} url={tier.url} />
           ))}
         </div>
 
-        <p class="pb-2 text-xs font-medium tracking-wide uppercase">One-time</p>
-        <div class="mb-4 flex flex-col gap-4 border-2 border-zinc-900 bg-white p-5 sm:flex-row sm:items-center sm:justify-between">
+        <p class="eyebrow">One-time</p>
+        <div class="panel mb-6 flex flex-col gap-4 p-5 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <h3 class="text-lg font-medium">Give once, any amount</h3>
-            <p class="text-sm">
+            <h3 class="pb-1 text-lg">Give once, any amount</h3>
+            <p class="text-sm text-muted">
               A single donation of any amount, funding the next generation of
               builders.
             </p>
@@ -140,7 +140,7 @@ const grantees = granteesEntries
           </a>
         </div>
 
-        <p class="text-center text-xs text-zinc-600">
+        <p class="text-center text-xs text-muted">
           Your donations are tax deductible. Thank you for supporting young
           builders working on important problems with scrappy solutions.
         </p>
@@ -181,7 +181,7 @@ const grantees = granteesEntries
           </ul>
         </div>
 
-        <div class="mt-16 border-t-2 border-zinc-600 pt-6">
+        <div class="mt-16 border-t border-line pt-6 text-xs text-muted">
           <p class="pb-4">
             Bagel Fund is a 501(c)3 nonprofit. EIN: 33-2899896.
             <br />

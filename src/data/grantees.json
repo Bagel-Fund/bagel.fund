@@ -21,7 +21,7 @@
 		"age": 25,
 		"projectDescription": "turning motion and brainwaves into sound",
 		"fundedDate": "December 21, 2025",
-		"tags": ["deep tech"]
+		"tags": ["hardware", "music"]
 	},
 	{
 		"name": "Visharad",
@@ -29,7 +29,7 @@
 		"age": 14,
 		"projectDescription": "making e-skin to give robots the sense of touch",
 		"fundedDate": "December 11, 2025",
-		"tags": ["deep tech", "robotics"]
+		"tags": ["hardware", "robotics"]
 	},
 	{
 		"name": "Kushal",
@@ -45,7 +45,7 @@
 		"age": 17,
 		"projectDescription": "radiation-resistant AI hardware and quantum intelligence",
 		"fundedDate": "September 19, 2025",
-		"tags": ["deep tech"]
+		"tags": ["hardware", "ai/ml"]
 	},
 	{
 		"name": "Aditi",
@@ -61,7 +61,7 @@
 		"age": 21,
 		"projectDescription": "bat-inspired flight mechanics",
 		"fundedDate": "June 26, 2025",
-		"tags": ["deep tech", "aerospace"]
+		"tags": ["hardware", "aerospace"]
 	},
 	{
 		"name": "Peter",
@@ -77,7 +77,7 @@
 		"age": 18,
 		"projectDescription": "the world's first pulse jet powered VTOL",
 		"fundedDate": "June 16, 2025",
-		"tags": ["deep tech", "aerospace"]
+		"tags": ["hardware", "aerospace"]
 	},
 	{
 		"name": "Chloe",
@@ -93,7 +93,7 @@
 		"age": 19,
 		"projectDescription": "fully autonomous and reusable cargo aapsule",
 		"fundedDate": "June 16, 2025",
-		"tags": ["deep tech", "aerospace"]
+		"tags": ["hardware", "aerospace"]
 	},
 	{
 		"name": "Sofia",
@@ -101,7 +101,7 @@
 		"age": 17,
 		"projectDescription": "VLA models for robotics",
 		"fundedDate": "July 21, 2025",
-		"tags": ["software", "deep tech", "ai/ml", "robotics"]
+		"tags": ["software", "ai/ml", "robotics"]
 	},
 	{
 		"name": "Felicia",
@@ -109,7 +109,7 @@
 		"age": 19,
 		"projectDescription": "AI neonatal screening tests",
 		"fundedDate": "June 3, 2025",
-		"tags": ["health tech", "deep tech", "ai/ml"]
+		"tags": ["health tech", "ai/ml"]
 	},
 	{
 		"name": "Shraddhaa",
@@ -141,7 +141,7 @@
 		"age": 19,
 		"projectDescription": "hybrid air/ground UAV",
 		"fundedDate": "April 14, 2025",
-		"tags": ["deep tech", "aerospace"]
+		"tags": ["hardware", "aerospace"]
 	},
 	{
 		"name": "Yash",
@@ -197,7 +197,7 @@
 		"age": 21,
 		"projectDescription": "computer vision water monitoring to boost shrimp yield by 40%",
 		"fundedDate": "March 8, 2025",
-		"tags": ["software", "deep tech", "ai/ml", "agriculture"]
+		"tags": ["software", "ai/ml", "agriculture"]
 	},
 	{
 		"name": "Arya",
@@ -205,7 +205,7 @@
 		"age": 16,
 		"projectDescription": "bionic leaf for solar power",
 		"fundedDate": "December 16, 2024",
-		"tags": ["climate", "deep tech"]
+		"tags": ["climate", "biotech"]
 	},
 	{
 		"name": "Akshat",
@@ -253,7 +253,7 @@
 		"age": 20,
 		"projectDescription": "affordable autonomous micro drone swarms",
 		"fundedDate": "November 25, 2024",
-		"tags": ["deep tech", "aerospace", "ai/ml"]
+		"tags": ["hardware", "aerospace", "ai/ml"]
 	},
 	{
 		"name": "Neerav",
@@ -261,7 +261,7 @@
 		"age": 17,
 		"projectDescription": "small solar-powered planes that fly forever",
 		"fundedDate": "December 6, 2024",
-		"tags": ["climate", "deep tech", "aerospace"]
+		"tags": ["hardware", "climate", "aerospace"]
 	},
 	{
 		"name": "Anirudh",
@@ -309,7 +309,7 @@
 		"age": 17,
 		"projectDescription": "novel CRISPR delivery method in plants",
 		"fundedDate": "September 9, 2024",
-		"tags": ["deep tech", "climate", "biotech", "agriculture"]
+		"tags": ["biotech", "climate", "agriculture"]
 	},
 	{
 		"name": "Charles",
@@ -317,7 +317,7 @@
 		"age": 14,
 		"projectDescription": "building high-altitude UAVs",
 		"fundedDate": "August 16, 2024",
-		"tags": ["deep tech", "aerospace"]
+		"tags": ["hardware", "aerospace"]
 	},
 	{
 		"name": "Mason",
@@ -349,7 +349,7 @@
 		"age": 19,
 		"projectDescription": "creating a computer from scratch",
 		"fundedDate": "August 5, 2024",
-		"tags": ["deep tech"]
+		"tags": ["hardware"]
 	},
 	{
 		"name": "Sunir",
@@ -357,7 +357,7 @@
 		"age": 19,
 		"projectDescription": "building self-driving RC cars",
 		"fundedDate": "July 31, 2024",
-		"tags": ["deep tech", "ai/ml"]
+		"tags": ["hardware", "ai/ml"]
 	},
 	{
 		"name": "Aaryan",
@@ -373,7 +373,7 @@
 		"age": 18,
 		"projectDescription": "building Teleoperation robots",
 		"fundedDate": "August 1, 2024",
-		"tags": ["deep tech", "robotics"]
+		"tags": ["hardware", "robotics"]
 	},
 	{
 		"name": "Arielle",
@@ -381,7 +381,7 @@
 		"age": 20,
 		"projectDescription": "working on Apple Tree cloning",
 		"fundedDate": "August 1, 2024",
-		"tags": ["deep tech", "climate", "biotech", "agriculture"]
+		"tags": ["biotech", "agriculture"]
 	},
 	{
 		"name": "Winston",

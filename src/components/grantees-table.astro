@@ -24,7 +24,7 @@ const { grantees } = Astro.props;
 
 const FILTER_TAGS = [
   "software",
-  "deep tech",
+  "hardware",
   "health tech",
   "climate",
   "robotics",
@@ -32,6 +32,7 @@ const FILTER_TAGS = [
   "ai/ml",
   "biotech",
   "agriculture",
+  "music",
 ] as const;
 
 const COLUMNS: readonly Column[] = [
@@ -42,11 +43,11 @@ const COLUMNS: readonly Column[] = [
   //{ label: "Grant Date", sort: "fundedDate" },
 ];
 
-const TH_CLASS = "p-3 text-left font-medium tracking-wide uppercase";
+const TH_CLASS = "border-b border-line p-3 text-left text-xs font-normal tracking-widest text-muted uppercase";
 const SORTABLE_CLASS =
-  "sortable cursor-pointer select-none whitespace-nowrap hover:bg-zinc-700";
-const SORT_INDICATOR_CLASS = "sort-indicator ml-2 text-xs text-zinc-400";
-const CELL_CLASS = "border-b border-zinc-200 p-3 align-top";
+  "sortable cursor-pointer select-none whitespace-nowrap hover:text-ink";
+const SORT_INDICATOR_CLASS = "sort-indicator ml-1";
+const CELL_CLASS = "border-b border-line p-3 align-top";
 
 const formatDate = (dateString: string) =>
   new Date(dateString).toLocaleDateString("en-US", {
@@ -56,18 +57,18 @@ const formatDate = (dateString: string) =>
   });
 ---
 
-<div class="my-4 border-2 border-zinc-600 p-4">
+<div class="panel my-4 p-4">
   <div class="mb-4">
     <input
       type="text"
       id="search-input"
       placeholder="Search by name or project description..."
-      class="w-full border-2 border-zinc-600 bg-white p-3 text-sm placeholder:text-zinc-500 focus:bg-zinc-50 focus:outline-none"
+      class="w-full border border-line bg-paper p-3 text-sm placeholder:text-muted focus:border-line-strong focus:outline-none"
     />
   </div>
 
   <div class="flex flex-col gap-3">
-    <span class="text-xs font-medium tracking-wide uppercase"
+    <span class="text-xs tracking-widest text-muted uppercase"
       >Filter by tags</span
     >
     <div id="tag-filters" class="flex flex-wrap gap-2">
@@ -79,7 +80,7 @@ const formatDate = (dateString: string) =>
               class="tag-checkbox peer sr-only"
               value={tag}
             />
-            <span class="inline-block border-2 border-zinc-600 px-2 py-1 transition-colors select-none peer-checked:bg-zinc-600 peer-checked:text-zinc-50 peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2">
+            <span class="inline-block border border-line px-2 py-1 text-muted transition-colors select-none hover:border-line-strong hover:text-ink peer-checked:border-ink peer-checked:bg-ink peer-checked:text-paper peer-focus-visible:outline-1 peer-focus-visible:outline-offset-2">
               {tag}
             </span>
           </label>
@@ -91,10 +92,10 @@ const formatDate = (dateString: string) =>
 
 <div
   id="grantees-container"
-  class="my-4 overflow-x-auto border-2 border-zinc-800"
+  class="panel my-4 overflow-x-auto"
 >
   <table id="grantees-table" class="w-full border-collapse text-sm">
-    <thead class="bg-zinc-900 text-zinc-50">
+    <thead class="bg-sunken">
       <tr>
         {
           COLUMNS.map((col) => (
@@ -117,7 +118,7 @@ const formatDate = (dateString: string) =>
       {
         grantees.map((grantee) => (
           <tr
-            class="grantee-row hover:bg-zinc-50"
+            class="grantee-row transition-colors hover:bg-sunken"
             data-name={grantee.name.toLowerCase()}
             data-desc={grantee.projectDescription.toLowerCase()}
             data-tags={grantee.tags.join(",").toLowerCase()}
@@ -138,7 +139,7 @@ const formatDate = (dateString: string) =>
             <td class={CELL_CLASS}>
               <div class="flex flex-wrap gap-2">
                 {grantee.tags.map((tag) => (
-                  <span class="inline-block whitespace-nowrap border border-zinc-400 px-1.5 py-0.5 text-xs uppercase">
+                  <span class="inline-block whitespace-nowrap border border-line px-1.5 py-0.5 text-xs text-muted uppercase">
                     {tag}
                   </span>
                 ))}
@@ -151,7 +152,7 @@ const formatDate = (dateString: string) =>
         ))
       }
       <tr id="no-results" class="hidden">
-        <td colspan="5" class="p-8 text-center text-zinc-500"
+        <td colspan="5" class="p-8 text-center text-muted"
           >No grantees found.</td
         >
       </tr>

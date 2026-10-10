@@ -7,7 +7,9 @@
   const BAGEL_SPEED = 0.025; // lower = slower
   const WIDTH = 280;
   const HEIGHT = 160;
-  const CHARS = ".,-bagelfund";
+  // shading ramp, dimmest to brightest. ordered by measured ink coverage in
+  // departure mono so the lighting reads smoothly. keeps every letter of "bagelfund"
+  const CHARS = ".,-:;+=luneafbdg";
 
   let A = 1;
   let B = 1;
@@ -50,12 +52,15 @@
         );
 
         const o = x + WIDTH * y;
-        const N = Math.floor(
-          8 *
-            ((st * sA - sp * ct * cA) * cB -
-              sp * ct * sA -
-              st * cA -
-              cp * ct * sB),
+        // surface luminance, in [-sqrt2, sqrt2]
+        const L =
+          (st * sA - sp * ct * cA) * cB -
+          sp * ct * sA -
+          st * cA -
+          cp * ct * sB;
+        const N = Math.min(
+          CHARS.length - 1,
+          Math.round((L / Math.SQRT2) * (CHARS.length - 1)),
         );
 
         if (y < HEIGHT && y >= 0 && x >= 0 && x < WIDTH && D > z[o]) {
