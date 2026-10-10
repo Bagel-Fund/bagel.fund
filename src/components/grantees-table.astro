@@ -80,7 +80,7 @@ const formatDate = (dateString: string) =>
               class="tag-checkbox peer sr-only"
               value={tag}
             />
-            <span class="inline-block border border-line px-2 py-1 text-muted select-none peer-checked:border-ink peer-checked:bg-ink peer-checked:text-paper peer-not-checked:hover:bg-sunken peer-not-checked:hover:text-ink peer-focus-visible:outline-1 peer-focus-visible:outline-offset-2">
+            <span class="inline-block border border-line px-2 py-1 text-muted select-none peer-checked:border-ink peer-checked:bg-ink peer-checked:text-paper peer-not-checked:peer-enabled:hover:bg-sunken peer-not-checked:peer-enabled:hover:text-ink peer-disabled:cursor-not-allowed peer-disabled:opacity-40 peer-focus-visible:outline-1 peer-focus-visible:outline-offset-2">
               {tag}
             </span>
           </label>

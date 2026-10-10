@@ -37,17 +37,24 @@ const render = () => {
   }
 
   const query = searchQuery.toLowerCase().trim();
-  const visible = rows.filter((row) => {
-    const matchesSearch =
+  const searched = rows.filter(
+    (row) =>
       !query ||
       (row.dataset.name ?? "").includes(query) ||
-      (row.dataset.desc ?? "").includes(query);
+      (row.dataset.desc ?? "").includes(query),
+  );
+  // tags narrow the list: a row must have every selected tag
+  const visible = searched.filter((row) => {
     const rowTags = (row.dataset.tags ?? "").split(",");
-    const matchesTags =
-      selectedTags.length === 0 ||
-      selectedTags.some((tag) => rowTags.includes(tag));
+    return selectedTags.every((tag) => rowTags.includes(tag));
+  });
 
-    return matchesSearch && matchesTags;
+  // grey out unselected tags that would narrow the list down to nothing
+  const visibleTags = new Set(
+    visible.flatMap((row) => (row.dataset.tags ?? "").split(",")),
+  );
+  checkboxes.forEach((checkbox) => {
+    checkbox.disabled = !checkbox.checked && !visibleTags.has(checkbox.value);
   });
 
   if (sortField) {

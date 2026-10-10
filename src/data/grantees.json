@@ -53,7 +53,7 @@
 		"age": 17,
 		"projectDescription": "wearable biosensors to track and predict hormonal fluctuations",
 		"fundedDate": "July 28, 2025",
-		"tags": ["health tech", "biotech"]
+		"tags": ["hardware", "health tech", "biotech"]
 	},
 	{
 		"name": "Hriday",
@@ -173,7 +173,7 @@
 		"age": 16,
 		"projectDescription": "low-cost bio printer",
 		"fundedDate": "March 5, 2025",
-		"tags": ["health tech", "biotech"]
+		"tags": ["hardware", "health tech", "biotech"]
 	},
 	{
 		"name": "Krupal",
@@ -205,7 +205,7 @@
 		"age": 16,
 		"projectDescription": "bionic leaf for solar power",
 		"fundedDate": "December 16, 2024",
-		"tags": ["climate", "biotech"]
+		"tags": ["hardware", "climate", "biotech"]
 	},
 	{
 		"name": "Akshat",
